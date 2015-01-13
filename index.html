@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>    
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>LA MONTAGNE DES PHOBIES</title>
+        <meta name="description" content="Projet Graphisme Dynamique - Sacha MOCQUET" />
+        <link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+    </head>
+    
+    <body id="page" class="recherche-page" onload="scrollToBottom();">
+    <!-- <body id="page" class="recherche-page"> -->
+        <h1 id="top">LA MONTAGNE DES PHOBIES</h1>
+        <span class="pixels"></span>
+        
+        <!-- SYSTEME DE FILTRES -->
+        <ul id="caracteristiques">
+            <li id="all-phobies" onclick="PhobieAll();">Tous</li>
+            <li id="elements-naturels" onclick="PhobieElementsNaturels();">Eléments naturels</li>
+            <li id="gustatifs" onclick="PhobieGustatifs();">Gustatifs</li>
+            <li id="animal" onclick="PhobieAnimal();">Animal</li>
+            <li id="vertige" onclick="PhobieVertige();">Vertige</li>
+            <li id="sante" onclick="Phobiesante();">Santé</li>
+            <li id="mythe-religion" onclick="PhobieMytheReligion();">Mythe et Religion</li>
+            <li id="objet" onclick="PhobieObjet();">Objet</li>
+            <li id="obscurite" onclick="PhobieObscurite();">Obscurité</li>
+            <li id="social" onclick="PhobieSocial();">Social</li>
+            <li id="transport" onclick="PhobieTransport();">Transport</li>
+            <li id="inclassable" onclick="PhobieInclassable();">Inclassable</li>
+        </ul>
+        
+        <!-- LISTE DES PHOBIES -->
+        <div id="liste-phobies">
+	        <div id="01-agoraphobie" class="social tooltip">agoraphobie
+		        <span> 
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Agoraphobie</strong><br /> 
+		        	Peur des espaces publics et, par extension, de la foule ; plus généralement, des espaces où la fuite est rendue difficile (foule, mais aussi lieux déserts).
+		        </span>
+	        </div>
+	        <div id="02-arachnophobie" class="animal tooltip">arachnophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Arachnophobie</strong><br /> Peur des araignées.
+		        </span>
+	        </div>
+	        <div id="03-dysmorphophobie" class="sante tooltip">dysmorphophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Dysmorphophobie</strong><br /> Peur des anomalies physiques.
+		        </span>
+	        </div>
+	        <div id="04-aviophobie" class="transport tooltip">aviophobie
+		         <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Aviophobie</strong><br /> Peur de prendre l'avion.
+		        </span>
+	        </div>
+	        <div id="05-hematophobie" class="sante tooltip">hématophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Hematophobie</strong><br /> Peur du contact et de la vue du sang..
+		        </span>
+	        </div>
+	        <div id="06-astraphobie" class="elements-naturels tooltip">astraphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Astraphobie</strong><br /> Peur du tonnerre.
+		        </span>
+	        </div>
+	        <div id="07-aquaphobie" class="elements-naturels tooltip">aquaphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Aquaphobie</strong><br /> Peur de l'eau.
+		        </span>
+	        </div>
+	        <div id="08-cynophobie" class="animal tooltip">cynophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Cynophobie</strong><br /> Peur des chiens.
+		        </span>
+	        </div>
+	        <div id="09-ophiophobie" class="animal tooltip">ophiophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ophiophobie</strong><br /> Peur des serpents.
+		        </span>
+	        </div>
+	        <div id="10-emetophobie" class="sante tooltip">emetophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Émétophobie</strong><br /> Peur de vomir.
+		        </span>
+	        </div>
+	        <div id="11-mysophobie" class="sante tooltip">mysophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Mysophobie</strong><br /> Peur de la saleté, de la contamination par les microbes..
+		        </span>
+	        </div>     
+	        <div id="12-nyctophobie" class="obscurite tooltip">nyctophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Nyctophobie</strong><br /> Peur du noir.
+		        </span>
+	        </div>
+	        <div id="13-autophobie" class="social tooltip">autophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Autophobie</strong><br /> Peur de la solitude.
+		        </span>
+	        </div>
+	        <div id="14-ablutophobie" class="elements-naturels tooltip">ablutophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ablutophobie</strong><br /> Peur de se baigner. Cette phobie est plus une peur de la noyade qu'une peur de l'eau.
+		        </span>
+	        </div>
+	        <div id="15-achmophobie" class="objet tooltip">achmophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Achmophobie</strong><br /> Peur des aiguilles et des objets pointus (ciseaux, couteaux, seringues par exemple).
+		        </span>
+	        </div>
+	        <div id="16-glossophobie" class="social tooltip">glossophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Glossophobie</strong><br /> Peur de parler en public.
+		        </span>
+	        </div>
+	        <div id="17-claustrophobie" class="social tooltip">claustrophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Claustrophobie</strong><br /> Peur des espaces confinés.
+		        </span>
+	        </div>
+	        <div id="18-acrophobie" class="vertige tooltip">acrophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Acrophobie</strong><br /> Peur des hauteurs ; s'accompagne souvent de vertiges.
+		        </span>
+	        </div>     
+	        <div id="19-aerodromophobie" class="transport tooltip">aerodromophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Aérodromophobie</strong><br /> Peur de l'avion, des voyages en avion.
+		        </span>
+	        </div>
+	        <div id="20-ailurophobie" class="mythe-religion tooltip">ailurophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ailurophobie</strong><br /> Peur des chats.
+		        </span>
+	        </div>
+	        <div id="21-zoophobie" class="animal tooltip">zoophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Zoophobie</strong><br /> Peur générale des animaux.
+		        </span>
+	        </div>
+	        <div id="22-bacillophobie" class="sante tooltip">bacillophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Bacillophobie</strong><br /> Peur des bacilles, des bactéries.
+		        </span>
+	        </div>     
+	        <div id="23-nomophobie" class="social tooltip">nomophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Nomophobie</strong><br /> Peur d'être séparé de son téléphone portable. Cette phobie désignerait aussi la peur excessive des lois.
+		        </span>
+	        </div>
+	        <div id="24-coulrophobie" class="mythe-religion tooltip">coulrophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Coulrophobie</strong><br /> Peur des clowns.
+		        </span>
+	        </div>
+	        <div id="25-leucoselophobie" class="social tooltip">leucosélophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Leucoselophobie</strong><br /> Peur de la page blanche (blocage de l'écrivain.
+		        </span>
+	        </div>
+	        <div id="26-necrophobie" class="sante tooltip">necrophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Nécrophobie</strong><br /> Peur des cadavres.
+		        </span>
+	        </div>
+	        <div id="27-haptophobie" class="social tooltip">haptophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Haptophobie</strong><br /> Peur d'être touché.
+		        </span>
+	        </div>
+	        <div id="28-nosophobie" class="sante tooltip">nosophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Nosophobie</strong><br /> Peur de la maladie, d'être malade.
+		        </span>
+	        </div>
+	        <div id="29-scopophobie" class="social tooltip">scopophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Scopophobie</strong><br /> Peur du regard des autres.
+		        </span>
+	        </div>     
+	        <div id="30-gephyrophobie" class="vertige tooltip">gephyrophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Géphyrophobie</strong><br /> Peur des ponts (ou de traverser les ponts).
+		        </span>
+	        </div>     
+	        <div id="31-apiphobie" class="animal tooltip">apiphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Apiphobie</strong><br /> Peur des abeilles. Par extension, peur des insectes possédant un dard ou pouvant piquer.
+		        </span>
+	        </div>
+	        <div id="32-pediophobie" class="objet tooltip">pediophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Pédiophobie</strong><br /> Peur et rejet des enfants (aussi : peur des poupées).
+		        </span>
+	        </div>
+	        <div id="33-thanatophobie" class="sante tooltip">thanatophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Thanatophobie</strong><br /> Peur de la mort.
+		        </span>
+	        </div>
+	        <div id="34-ereutophobie" class="social tooltip">ereutophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ereutophobie</strong><br /> Peur de rougir en public.
+		        </span>
+	        </div>     
+	        <div id="35-telephonophobie" class="social tooltip">telephonophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Téléphonophobie</strong><br /> Peur de répondre au téléphone.
+		        </span>
+	        </div>
+	        <div id="36-pyrophobie" class="elements-naturels tooltip">pyrophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Pyrophobie</strong><br /> Peur du feu.
+		        </span>
+	        </div>
+	        <div id="37-acarophobie" class="sante tooltip">acarophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Acarophobie</strong><br /> Peur des parasites de la peau, des acariens.
+		        </span>
+	        </div>
+	        <div id="38-phobie-sociale" class="social tooltip">phobie sociale
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Phobie sociale</strong><br /> Peur des ou de certaines situations sociales.
+		        </span>
+	        </div>
+	        <div id="39-algophobie" class="sante tooltip">algophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Algophobie</strong><br /> Peur de la douleur.
+		        </span>
+	        </div>
+	        <div id="40-anthropophobie" class="social tooltip">anthropophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Anthropophobie</strong><br /> Peur des gens ou d'être en leur compagnie, une forme de phobie sociale.
+		        </span>
+	        </div>
+	        <div id="41-gymnophobie" class="social tooltip">gymnophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Gymnophobie</strong><br /> Peur de la nudité.
+		        </span>
+	        </div>  
+	        <div id="42-herpetophobie" class="animal tooltip">herpetophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Herpétophobie</strong><br /> Peur des reptiles ou amphibiens.
+		        </span>
+	        </div>     
+	        <div id="43-achluophobie" class="obscurite tooltip">achluophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Achluophobie</strong><br /> Peur de l'obscurité et du noir.
+		        </span>
+	        </div>
+	        <div id="44-tokophobie" class="sante tooltip">tokophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Tokophobie</strong><br /> Peur d'accoucher.
+		        </span>
+	        </div>
+	        <div id="45-ochlophobie" class="social tooltip">ochlophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ochlophobie</strong><br /> Peur de la foule.
+		        </span>
+	        </div>
+	        <div id="46-thalassophobie" class="elements-naturels tooltip">thalassophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Thalassophobie</strong><br /> Peur de la mer.
+		        </span>
+	        </div>       
+	        <div id="47-basophobie" class="social tooltip">basophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Basophobie</strong><br /> Peur de marcher.
+		        </span>
+	        </div>
+	        <div id="48-hylophobie" class="elements-naturels tooltip">hylophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Hylophobie</strong><br /> Peur des forêts.
+		        </span>
+	        </div>
+	        <div id="49-phobie-sang" class="inclassable tooltip">phobie de type sang-injection-blessure
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Phobie de type sang-injection-blessure</strong><br /> Sous-type de phobies spécifiques classifié dans le DSM-IV.
+		        </span>
+	        </div>
+	        <div id="50-carpophobie" class="gustatifs tooltip">carpophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Carpophobie</strong><br /> Peur des fruits.
+		        </span>
+	        </div>
+	        <div id="51-anginophobie" class="sante tooltip">anginophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Anginophobie</strong><br /> Peur de l’étouffement, notamment par des angines de poitrine.
+		        </span>
+	        </div>
+	        <div id="52-nosocomephobie" class="sante tooltip">nosocomephobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Nosocoméphobie</strong><br /> Peur des hôpitaux, cliniques et centres de soin en général.
+		        </span>
+	        </div>  
+	        <div id="53-entomophobie" class="animal tooltip">entomophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Entomophobie</strong><br /> Peur des insectes.
+		        </span>
+	        </div>     
+	        <div id="54-ichthyophobie" class="animal tooltip">ichthyophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ichthyophobie</strong><br /> Peur des poissons.
+		        </span>
+	        </div>
+	        <div id="55-musophobie" class="animal tooltip">musophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Musophobie</strong><br /> Peur des souris ou rats.
+		        </span>
+	        </div>
+	        <div id="56-myrmecophobie" class="animal tooltip">myrmécophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Myrmécophobie</strong><br /> Peur des fourmis.
+		        </span>
+	        </div>
+	        <div id="57-ornithophobie" class="animal tooltip">ornithophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ornithophobie</strong><br /> Peur des oiseaux.
+		        </span>
+	        </div>              
+	        <div id="58-squalophobie" class="animal tooltip">squalophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Squalophobie</strong><br /> Peur des requins.
+		        </span>
+	        </div>
+	        <div id="59-aerophobie" class="elements-naturels tooltip">aerophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Aérophobie</strong><br /> Peur de l'air et du vent.
+		        </span>
+	        </div>
+	        <div id="60-brontophobie" class="elements-naturels tooltip">brontophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Brontophobie</strong><br /> Peur du tonnerre.
+		        </span>
+	        </div>   
+	        <div id="61-asthenophobie" class="sante tooltip">asthenophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Asthénophobie</strong><br /> Peur de s'évanouir.
+		        </span>
+	        </div>
+	        <div id="62-automysophobie" class="sante tooltip">automysophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Automysophobie</strong><br /> Peur d'être sale, de sentir mauvais.
+		        </span>
+	        </div>
+	        <div id="63-borbophobie" class="sante tooltip">borbophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Borbophobie</strong><br /> Peur des gargouillements.
+		        </span>
+	        </div>
+	        <div id="64-cancerophobie" class="sante tooltip">cancerophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Cancérophobie</strong><br /> Peur du cancer.
+		        </span>
+	        </div>        
+	        <div id="65-psychopathophobie" class="sante tooltip">psychopathophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Psychopathophobie</strong><br /> Peur de devenir fou.
+		        </span>
+	        </div>
+	        <div id="66-phasmophobie" class="mythe-religion tooltip">phasmophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Phasmophobie</strong><br /> Peur des fantômes.
+		        </span>
+	        </div>  
+	        <div id="67-theophobie" class="mythe-religion tooltip">theophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Théophobie</strong><br /> Peur de Dieu.
+		        </span>
+	        </div>     
+	        <div id="68-belenophobie" class="objet tooltip">belenophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Bélénophobie</strong><br /> Peur des aiguilles.
+		        </span>
+	        </div>
+	        <div id="69-anuptaphobie" class="social tooltip">anuptaphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Anuptaphobie</strong><br /> Peur du célibat.
+		        </span>
+	        </div>
+	        <div id="70-athazagoraphobie" class="social tooltip">athazagoraphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Athazagoraphobie</strong><br /> Peur d'être oublié ou ignoré.
+		        </span>
+	        </div>
+	        <div id="71-blemmophobie" class="social tooltip">blemmophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Blemmophobie</strong><br /> Peur du regard des autres.
+		        </span>
+	        </div>        
+	        <div id="72-phobophobie" class="social tooltip">phobophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Phobophobie</strong><br /> Peur d'avoir peur (d'être surpris).
+		        </span>
+	        </div>
+	        <div id="73-amaxophobie" class="transport tooltip">amaxophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Amaxophobie</strong><br /> Peur de la conduite.
+		        </span>
+	        </div>
+	        <div id="74-siderodromophobie" class="transport tooltip">Siderodromophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Sidérodromophobie</strong><br /> Peur de voyager en train.
+		        </span>
+	        </div>
+	        <div id="75-alektorophobie" class="animal tooltip">alektorophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Alektorophobie</strong><br /> Peur des poulets.
+		        </span>
+	        </div>
+	        <div id="76-anthelmophobie" class="animal tooltip">anthelmophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Anthelmophobie</strong><br /> Peur des vers.
+		        </span>
+	        </div>
+	        <div id="77-chiroptophobie" class="animal tooltip">chiroptophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Chiroptophobie</strong><br /> Peur des chauves-souris.
+		        </span>
+	        </div>  
+	        <div id="78-cuniculophobie" class="animal tooltip">cuniculophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Cuniculophobie</strong><br /> Peur des lapins.
+		        </span>
+	        </div>     
+	        <div id="79-hippophobie" class="animal tooltip">hippophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Hippophobie</strong><br /> Peur des chevaux, des équidés.
+		        </span>
+	        </div>
+	        <div id="80-trypophobie" class="elements-naturels tooltip">trypophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Trypophobie</strong><br /> Peur des trous.
+		        </span>
+	        </div>
+	        <div id="81-mycophobie" class="elements-naturels tooltip">mycophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Mycophobie</strong><br /> Peur des champignons.
+		        </span>
+	        </div>
+	        <div id="82-selenophobie" class="elements-naturels tooltip">selenophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Sélénophobie</strong><br /> Peur de la Lune.
+		        </span>
+	        </div>         
+	        <div id="83-acerophobie" class="gustatifs tooltip">acerophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Acérophobie</strong><br /> Peur de ce qui a un goût sur (acide).
+		        </span>
+	        </div>
+	        <div id="84-ithyphallophobie" class="inclassable tooltip">ithyphallophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ithyphallophobie</strong><br /> Peur de voir des pénis en érection.
+		        </span>
+	        </div>
+	        <div id="85-musicophobie" class="inclassable tooltip">musicophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Musicophobie</strong><br /> Peur de la musique.
+		        </span>
+	        </div>
+	        <div id="86-pantophobie" class="inclassable tooltip">pantophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Pantophobie</strong><br /> Peur de tout.
+		        </span>
+	        </div>
+	        <div id="87-stasophobie" class="inclassable tooltip">stasophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Stasophobie</strong><br /> Peur d'avoir à rester debout.
+		        </span>
+	        </div>  
+	        <div id="88-apopathodiaphulatophobie" class="sante tooltip">apopathodiaphulatophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Apopathodiaphulatophobie</strong><br /> Peur d'être constipé ou de la constipation en elle-même.
+		        </span>
+	        </div>     
+	        <div id="89-phagophobie" class="sante tooltip">phagophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Phagophobie</strong><br /> Peur de s'étouffer avec des aliments.
+		        </span>
+	        </div>
+	        <div id="90-epistaxiophobie" class="sante tooltip">epistaxiophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Epistaxiophobie</strong><br /> Peur des saignements de nez.
+		        </span>
+	        </div>
+	        <div id="91-halitophobie" class="sante tooltip">halitophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Halitophobie</strong><br /> Peur d'avoir mauvaise haleine.
+		        </span>
+	        </div>
+	        <div id="92-taphophobie" class="sante tooltip">taphophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Taphophobie</strong><br /> Peur des tombes ou d'être enterré vivant.
+		        </span>
+	        </div>        
+	        <div id="93-apeirophobie" class="mythe-religion tooltip">apeirophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Apéirophobie</strong><br /> Peur de l'infini.
+		        </span>
+	        </div>
+	        <div id="94-ecclesiophobie" class="mythe-religion tooltip">ecclesiophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Ecclésiophobie</strong><br /> Peur des églises.
+		        </span>
+	        </div>
+	        <div id="95-maskaphobie" class="mythe-religion tooltip">maskaphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Maskaphobie</strong><br /> Peur des masques.
+		        </span>
+	        </div>
+	        <div id="96-teratophobie" class="mythe-religion tooltip">teratophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Tératophobie</strong><br /> Peur des monstres.
+		        </span>
+	        </div>
+	        <div id="97-kenophobie" class="obscurite tooltip">kenophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Kénophobie</strong><br /> Peur de l'obscurité.
+		        </span>
+	        </div>  
+	        <div id="98-angrophobie" class="social tooltip">angrophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Angrophobie</strong><br /> Peur de se mettre en colère en public.
+		        </span>
+	        </div>     
+	        <div id="99-atychiphobie" class="social tooltip">atychiphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Atychiphobie</strong><br /> Peur de l'échec.
+		        </span>
+	        </div>
+	        <div id="100-pogonophobie" class="social tooltip">pogonophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Pogonophobie</strong><br /> Aversion envers les barbes / Phobie des poils du menton et des joues.
+		        </span>
+	        </div>
+	        <div id="101-fumiphobie" class="social tooltip">fumiphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Fumiphobie</strong><br /> Peur de la fumée (tabac par exemple).
+		        </span>
+	        </div>
+	        <div id="102-gerascophobie" class="social tooltip">gerascophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Gérascophobie</strong><br /> Peur de vieillir.
+		        </span>
+	        </div>        
+	        <div id="103-graphophobie" class="social tooltip">graphophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Graphophobie</strong><br /> Peur de l'écriture (fait d'écrire).
+		        </span>
+	        </div>
+	        <div id="104-hypegiaphobie" class="social tooltip">hypegiaphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Hypégiaphobie</strong><br /> Peur des responsabilités.
+		        </span>
+	        </div>
+	        <div id="105-katagelophobie" class="social tooltip">katagelophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Katagélophobie</strong><br /> Peur du ridicule.
+		        </span>
+	        </div>
+	        <div id="106-trichophobie" class="social tooltip">trichophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Trichophobie</strong><br /> Peur des poils et de la pilosité.
+		        </span>
+	        </div>
+	        <div id="107-cyclophobie" class="transport tooltip">cyclophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Cyclophobie</strong><br /> Peur de monter sur une bicyclette ou tout autre véhicule à deux roues.
+		        </span>
+	        </div>  
+	        <div id="108-catapedaphobie" class="vertige tooltip">catapedaphobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Catapédaphobie</strong><br /> Peur de grimper en hauteur.
+		        </span>
+	        </div>     
+	        <div id="109-climacophobie" class="vertige tooltip">climacophobie
+		        <span>
+		        	<img class="callout" src="img/callout.gif" />
+		        	<strong>Climacophobie</strong><br /> Peur d'utiliser des escaliers, surtout de les descendre.
+		        </span>
+	        </div>  
+        </div>    
+        
+        <!-- UNIVERS -->
+        <div class="univers paradis"></div>
+        <div class="univers neige"></div>
+        <div class="univers verdure"></div>
+        <div class="univers automne"></div>
+        <div class="univers desert"></div>
+        <div class="univers crepuscule"></div>
+        <div class="univers gris"></div>
+        <div class="univers roche"></div>
+        <div class="univers enfer"></div>
+        
+        <!-- BOUTON GO TO TOP -->
+        <footer>
+        <span>La montagne des phobies - Tous droits réservés 2014 - <a href="">Crédits</a></span>
+        <a class="gototop" href="#page" title="Haut de page">&#8593;</a>
+        <footer>
+
+    </body>
+</html>
