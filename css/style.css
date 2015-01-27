@@ -1,0 +1,1488 @@
+/** ******* **/
+/** ******* **/
+/** PAGES COMMUNES **/
+/** ******* **/
+/** ******* **/
+@font-face {
+    font-family: 'paintypaint1';
+    src: url('../fonts/painp___-webfont.eot');
+    src: url('../fonts/painp___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/painp___-webfont.woff2') format('woff2'),
+         url('../fonts/painp___-webfont.woff') format('woff'),
+         url('../fonts/painp___-webfont.ttf') format('truetype'),
+         url('../fonts/painp___-webfont.svg#paintypaint1') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+
+ul{
+    list-style-type: none;
+}
+
+body{
+    font-family: 'McLaren', cursive;
+    overflow-x: hidden;
+}
+
+/* OVERLAY ACCUEIL */
+#overlay-home {
+    /*background:url("../img/motif_monsters.png") repeat #F2EBD7; */
+    background-color: #F2EBD7;
+    background-size: 100px;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}
+
+#overlay-home #content-overlay{
+	width: 46%;	
+	margin: 270px auto 0;
+	opacity: 0;
+	color: #343434;
+	min-width: 330px;
+}
+
+#overlay-home #content-overlay .desc-overlay{
+	text-align: justify;
+	font-size: 13px;
+	margin-top: 20px;
+}
+
+#overlay-home #content-overlay #content-bt-overlay{
+	text-align: center;
+}
+
+#overlay-home .logo-overlay img{
+	max-width: 100%;
+	width: 180px;
+}
+
+#overlay-home .logo-overlay{
+	margin: -40px auto 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+}
+
+.bt-overlay{
+	color:#fff;
+	margin-top: 20px;
+	background-color:#CF7242;
+	font-size:12px;
+	margin-top: 40px!important;
+	line-height:26px;
+	cursor: pointer;
+	font-weight:400;
+	display:inline-block;
+	padding:5px 25px;
+	-webkit-transition: all 0.3s ease-out; 
+	-moz-transition: all 0.3s ease-out; 
+	-o-transition: all 0.3s ease-out; 
+	transition: all 0.3s ease-out; 
+	-moz-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+}
+
+
+@-webkit-keyframes rumble-bt-depart {
+    0% {-webkit-transform: rotate(0deg);}
+    25% {-webkit-transform: translate(1px, 0px) rotate(-2deg);}
+    50% {-webkit-transform: translate(0px, -1px) rotate(0deg);}
+    75% {-webkit-transform: translate(-1px, 0px) rotate(2deg);}
+    100% {-webkit-transform: translate(0px, 1px) rotate(0deg);} 
+}
+
+@keyframes rumble-bt-depart {
+    0% {transform: rotate(0deg);}
+    25% {transform: translate(1px, 0px) rotate(-2deg);}
+    50% {transform: translate(0px, -1px) rotate(0deg);}
+    75% {transform: translate(-1px, 0px) rotate(2deg);}
+    100% {transform: translate(0px, 1px) rotate(0deg);} 
+}
+	
+.bt-overlay:hover{
+	background-color:#EADDB4;
+	-webkit-animation: rumble-bt-depart 0.0625s infinite linear;
+    animation: rumble-bt-depart 0.0625s infinite linear;
+}
+
+#logo-montagne{
+	background: url("../img/logo-montagne.png") no-repeat;
+	background-size: 150px;
+	width: 150px;
+	height: 151px;
+	position: absolute;
+	z-index: 2;
+	top: 20px;
+	left: 20px;
+}
+
+@-webkit-keyframes hair-logo-move {
+    0% {-webkit-transform: translate(0px, 2px) rotate(0deg);}
+    50% {-webkit-transform: translate(2px, 2px) rotate(0deg);}
+    100% {-webkit-transform: translate(0px, 2px) rotate(0deg);} 
+}
+
+@keyframes hair-logo-move {
+    0% {transform: translate(0px, 2px) rotate(0deg);}
+    50% {transform: translate(2px, 0px) rotate(0deg);}
+    100% {transform: translate(0px, 2px) rotate(0deg);} 
+}
+
+.hair-montagne{
+	-webkit-animation: hair-logo-move 0.1625s infinite linear;
+    animation: hair-logo-move 0.1625s infinite linear;
+    z-index: 1;
+    opacity: 0;
+    margin: 40px auto 0!important;
+}
+
+#page{
+    margin: 0 auto;
+    width: 100%;
+    min-height: 25668px;
+    /*
+    background:url(../img/---.jpg) no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    */
+}
+
+.pixels{
+    position: fixed;
+    top: 0;
+    left: 10px;
+    z-index: 2;
+    background-color: #FFF;
+}
+
+#top{
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    top: 10px;
+    visibility: hidden;
+}
+
+footer{
+    position: absolute;
+    top: 26067px;
+    font-size: 11px;
+    z-index: 3;	
+    color: #7A695F;
+    width: 100%;
+    text-align: center;
+    background-color: #211D18;
+}
+
+footer p{
+	text-align: justify;
+	padding-top: 15px;
+}
+
+footer a{
+	color: #CF7242;
+	text-decoration: none;
+	-moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+footer a:hover{
+	color:#E7D7AF;
+}
+
+#copyright{
+	display: table;
+	width: 680px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 20px;
+	height: 110px;
+}
+
+#copyright-title{
+	background: url("../img/copyright-title.png") no-repeat;
+	background-size: 648px;
+	margin-bottom: 13px;
+	width: 645px;
+	height: 28px;
+	text-align: center;	
+}
+
+#copyright a{
+	display: inline-block;
+	width: 140px;
+	margin-left: 60px;
+	height: 110px;
+}
+
+@-webkit-keyframes rumble-left {
+    0% {-webkit-transform: rotate(0deg);}
+    25% {-webkit-transform: translate(2px, 0px) rotate(-3deg);}
+    50% {-webkit-transform: translate(0px, -2px) rotate(0deg);}
+    75% {-webkit-transform: translate(-2px, 0px) rotate(3deg);}
+    100% {-webkit-transform: translate(0px, 2px) rotate(0deg);} 
+}
+
+@keyframes rumble-left {
+    0% {transform: rotate(0deg);}
+    25% {transform: translate(2px, 0px) rotate(-3deg);}
+    50% {transform: translate(0px, -2px) rotate(0deg);}
+    75% {transform: translate(-2px, 0px) rotate(3deg);}
+    100% {transform: translate(0px, 2px) rotate(0deg);} 
+}
+
+#left-copyright{
+	background: url("../img/left-copyright.png") no-repeat;
+	background-size: 70px;
+	width: 70px;
+	height: 90px;
+	display: inline-block;
+	margin-left: 60px!important;
+	-webkit-animation: rumble-left 0.1625s infinite linear;
+    animation: rumble-left 0.1625s infinite linear;
+}
+
+#left-copyright-name{
+	background: url("../img/left-copyright-name.png") no-repeat;
+	background-size: 70px;
+	width: 70px;
+	position: absolute;
+	margin-left: 89px;
+	margin-top: -36px;
+	height: 30px;
+}
+
+@-webkit-keyframes rumble-middle {
+    0% {-webkit-transform: rotate(0deg);}
+    25% {-webkit-transform: translate(2px, 0px) rotate(2deg);}
+    50% {-webkit-transform: translate(0px, -2px) rotate(0deg);}
+    75% {-webkit-transform: translate(-2px, 0px) rotate(-2deg);}
+    100% {-webkit-transform: translate(0px, 2px) rotate(0deg);} 
+}
+
+@keyframes rumble-middle {
+    0% {transform: rotate(0deg);}
+    25% {transform: translate(2px, 0px) rotate(2deg);}
+    50% {transform: translate(0px, -2px) rotate(0deg);}
+    75% {transform: translate(-2px, 0px) rotate(-2deg);}
+    100% {transform: translate(0px, 2px) rotate(0deg);} 
+}
+
+#middle-copyright{
+	background: url("../img/middle-copyright.png") no-repeat;
+	background-size: 95px;
+	width: 95px;
+	height: 90px;
+	display: inline-block;
+	margin-left: 50px!important;
+	margin-right: 30px;
+	-webkit-animation: rumble-middle 0.1625s infinite linear;
+    animation: rumble-middle 0.1625s infinite linear;
+}
+
+#middle-copyright-name{
+	background: url("../img/middle-copyright-name.png") no-repeat;
+	background-size: 95px;
+	width: 95px;
+	position: absolute;
+	margin-left: 280px;
+	margin-top: -36px;
+	height: 30px;
+}
+
+@-webkit-keyframes rumble-right {
+    0% {-webkit-transform: rotate(0deg);}
+    25% {-webkit-transform: translate(2px, 0px) rotate(-2deg);}
+    50% {-webkit-transform: translate(0px, -2px) rotate(0deg);}
+    75% {-webkit-transform: translate(-2px, 0px) rotate(2deg);}
+    100% {-webkit-transform: translate(0px, 2px) rotate(0deg);} 
+}
+
+@keyframes rumble-right {
+    0% {transform: rotate(0deg);}
+    25% {transform: translate(-2px, 0px) rotate(-2deg);}
+    50% {transform: translate(0px, -2px) rotate(0deg);}
+    75% {transform: translate(2px, 0px) rotate(2deg);}
+    100% {transform: translate(0px, 2px) rotate(0deg);} 
+}
+
+#right-copyright{
+	background: url("../img/right-copyright.png") no-repeat;
+	background-size: 70px;
+	width: 70px;
+	height: 90px;
+	display: inline-block;
+	-webkit-animation: rumble-right 0.1825s infinite linear;
+    animation: rumble-right 0.1825s infinite linear;
+}
+
+#right-copyright-name{
+	background: url("../img/right-copyright-name.png") no-repeat;
+	background-size: 70px;
+	width: 70px;
+	position: absolute;
+	margin-left: 513px;
+	margin-top: -32px;
+	height: 30px;
+}
+
+#content-full-footer{
+	display: table;
+	width: 50%;
+	min-width: 550px;
+	margin: 0 auto;
+
+}
+
+#content-left-logo{
+	display: table-cell;
+	width: 27%;
+	background: url("../img/logo-white.png") no-repeat;
+	background-size: 153px;
+	opacity: 0.7;
+	height: 100px;
+}
+
+#content-right-footer{
+	display: table-cell;
+	width: 73%;
+	text-align: left;
+	vertical-align: top;
+}
+
+/** ******* **/
+/** ******* **/
+/** SYSTEME DE FILTRE **/
+/** ******* **/
+/** ******* **/
+#caracteristiques{
+    position: fixed;
+    top: 10px;
+    opacity: 0.5;
+    width: 140px;
+    right: 15px;
+    z-index: 4;
+    background-color: #f2ebd5;
+    padding: 5px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+#caracteristiques:hover{
+	opacity: 1;
+}
+
+#caracteristiques li{
+    border-bottom: 1px solid #fff;
+    color: #343434;
+    font-size: 13px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    cursor: pointer;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+#caracteristiques li:hover{
+	color: #5D381D;
+}
+
+#caracteristiques li:last-child{
+	border-bottom: none;
+}
+
+/** ******* **/
+/** ******* **/
+/** TOOLTIP **/
+/** ******* **/
+/** ******* **/
+
+div.tooltip {
+	outline:none;
+} 
+
+div.tooltip strong {
+	line-height:30px;
+} 
+
+div.tooltip:hover {
+	text-decoration:none;
+} 
+
+div.tooltip span { 
+	z-index:9999;
+	display:none;
+	position: absolute;
+	padding:14px 20px;
+	margin-top:-3px;
+	margin-left:98px;
+	width:300px;
+	line-height:16px;
+	font-size: 13px;
+} 
+
+div.tooltip:hover span{
+	display:inline-block;
+	position: absolute;
+	color:#111;
+	z-index: 9999;
+	background:#F2EBD6;
+	-moz-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+}
+
+.callout {
+	position:absolute;
+	top:30px;
+	border:0;
+	left:-12px;
+	z-index:9999;
+}
+
+div.tooltip span {
+	z-index:9999;
+}
+
+/** ******* **/
+/** ******* **/
+/** PHOBIES **/
+/** ******* **/
+/** ******* **/
+
+#all-phobies{
+	font-weight: bold;	
+}
+
+#liste-phobies{
+	width: 980px;
+	margin: 0 auto;
+	height: 25000px;
+	z-index: 2;
+}
+
+#liste-phobies > div{
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+    color: transparent;
+    display: inline-block;
+    position: absolute;
+    z-index: 4;
+}
+
+/*
+#liste-phobies > div:hover{
+	-webkit-animation: rumble-left 0.1625s infinite linear;
+    animation: rumble-left 0.1625s infinite linear;
+}
+*/
+
+.animal{
+	background-color: brown;
+}
+
+.sante{
+	background-color: red;
+}
+
+.transport{
+	background-color: blue;
+}
+
+#liste-phobies .elements-naturels{
+	background: url("../img/phobie-elements-naturels.png") no-repeat;
+	background-size: 80px;
+	width: 80px;
+	height: 129px;
+}
+
+.obscurite{
+	background-color: black;
+}
+
+.objet{
+	background-color: orange;
+}
+
+.vertige{
+	background-color: purple;
+}
+
+.mythe-religion{
+	background-color: gray;	
+}
+
+.inclassable{
+	background-color: yellow;
+}
+
+#liste-phobies .gustatifs{
+	background: url("../img/phobie-gustatif.png") no-repeat;
+	background-size: 80px;
+	width: 80px;
+	height: 97px;
+}
+
+.social{
+	background-color: #355E8E;
+}
+
+#agoraphobie-01{
+	margin-left: 325px;
+    margin-top: 200px;
+}
+
+#arachnophobie-02{
+	margin-left: 425px;
+    margin-top: 299px;
+}
+
+#dysmorphophobie-03{
+ 	margin-left: 768px;
+    margin-top: 1088px;	
+}
+
+#aviophobie-04{
+	margin-left: 715px;
+    margin-top: 1193px;
+}
+
+#hematophobie-05{
+	margin-left: 624px;
+    margin-top: 1722px;
+}
+
+#astraphobie-06{
+	margin-left: 513px;
+    margin-top: 1857px;
+}
+
+#aquaphobie-07{
+	margin-left: 683px;
+    margin-top: 1958px;
+}
+
+#cynophobie-08{
+	margin-left: 568px;
+    margin-top: 2161px;
+}
+
+#ophiophobie-09{
+	margin-left: 272px;
+    margin-top: 2272px;
+}
+
+#emetophobie-10{
+	margin-left: 703px;
+    margin-top: 2684px;
+}
+
+#mysophobie-11{
+	margin-left: 580px;
+    margin-top: 2794px;
+}
+
+#nyctophobie-12{
+	margin-left: 600px;
+    margin-top: 3118px;
+}
+
+#autophobie-13{
+	margin-left: 160px;
+    margin-top: 3299px;
+}
+
+#ablutophobie-14{
+	margin-left: 260px;
+    margin-top: 3460px;
+}
+
+#achmophobie-15{
+	margin-left: 675px;
+    margin-top: 3552px;
+}
+
+#glossophobie-16{
+	margin-left: 394px;
+    margin-top: 3730px;
+}
+
+#claustrophobie-17{
+	margin-left: 484px;
+    margin-top: 3968px;
+}
+
+#acrophobie-18{
+	margin-left: 563px;
+    margin-top: 4206px;
+}
+
+#aerodromophobie-19{
+	margin-left: 459px;
+    margin-top: 4567px;
+}
+
+#ailurophobie-20{
+	margin-left: 312px;
+    margin-top: 4841px;
+}
+
+#zoophobie-21{
+	margin-left: 480px;
+    margin-top: 4962px;
+}
+
+#bacillophobie-22{
+	margin-left: 423px;
+    margin-top: 5222px;
+}
+
+#nomophobie-23{
+	margin-left: 616px;
+    margin-top: 5375px;
+}
+
+#coulrophobie-24{
+	margin-left: 490px;
+    margin-top: 5561px;
+}
+
+#leucoselophobie-25{
+	margin-left: 369px;
+    margin-top: 5776px;
+}
+
+#necrophobie-26{
+	margin-left: 487px;
+    margin-top: 6020px;
+}
+
+#haptophobie-27{
+	margin-left: 460px;
+    margin-top: 6226px;
+}
+
+#nosophobie-28{
+	margin-left: 422px;
+    margin-top: 6554px;
+}
+
+#scopophobie-29{
+	margin-left: 455px;
+    margin-top: 6822px;
+}
+
+#gephyrophobie-30{
+	margin-left: 429px;
+    margin-top: 7136px;
+}
+
+#apiphobie-31{
+	margin-left: 423px;
+    margin-top: 7364px;
+}
+
+#pediophobie-32{
+	margin-left: 408px;
+    margin-top: 7556px;
+}
+
+#thanatophobie-33{
+	margin-left: 524px;
+    margin-top: 7700px;
+}
+
+#ereutophobie-34{
+	margin-left: 399px;
+    margin-top: 8322px;
+}
+
+#telephonophobie-35{
+	margin-left: 406px;
+    margin-top: 8465px;
+}
+
+#pyrophobie-36{
+	margin-left: 605px;
+    margin-top: 8616px;
+}
+
+#acarophobie-37{
+	margin-left: 496px;
+    margin-top: 8852px;
+}
+
+#phobie-sociale-38{
+	margin-left: 505px;
+    margin-top: 9058px;
+}
+
+#algophobie-39{
+	margin-left: 355px;
+    margin-top: 9168px;
+}
+
+#anthropophobie-40{
+	margin-left: 357px;
+    margin-top: 9409px;
+}
+
+#gymnophobie-41{
+	margin-left: 587px;
+    margin-top: 10040px;
+}
+
+#herpetophobie-42{
+	margin-left: 457px;
+    margin-top: 10210px;
+}
+
+#achluophobie-43{
+	margin-left: 455px;
+    margin-top: 10420px;
+}
+
+#tokophobie-44{
+	margin-left: 522px;
+    margin-top: 10630px;
+}
+
+#ochlophobie-45{
+	margin-left: 517px;
+    margin-top: 10845px;
+}
+
+#thalassophobie-46{
+	
+}
+
+#basophobie-47{
+	
+}
+
+#hylophobie-48{
+	
+}
+
+#phobie-sang-49{
+	
+}
+
+#carpophobie-50{
+	
+}
+
+#anginophobie-51{
+	
+}
+
+#nosocomephobie-52{
+	
+}
+
+#entomophobie-53{
+	
+}
+
+#ichthyophobie-54{
+	
+}
+
+#musophobie-55{
+	
+}
+
+#myrmecophobie-56{
+	
+}
+
+#ornithophobie-57{
+	
+}
+
+#squalophobie-58{
+	
+}
+
+#aerophobie-59{
+	
+}
+
+#brontophobie-60{
+	
+}
+
+#asthenophobie-61{
+	
+}
+
+#automysophobie-62{
+	
+}
+
+#borbophobie-63{
+	
+}
+
+#cancerophobie-64{
+	
+}
+
+#psychopathophobie-65{
+	
+}
+
+#phasmophobie-66{
+	
+}
+
+#theophobie-67{
+	
+}
+
+#belenophobie-68{
+	
+}
+
+#anuptaphobie-69{
+	
+}
+
+#athazagoraphobie-70{
+	
+}
+
+#blemmophobie-71{
+	
+}
+
+#phobophobie-72{
+	
+}
+
+#amaxophobie-73{
+	
+}
+
+#siderodromophobie-74{
+	
+}
+
+#alektorophobie-75{
+	
+}
+
+#anthelmophobie-76{
+	
+}
+
+#chiroptophobie-77{
+	
+}
+
+#cuniculophobie-78{
+	
+}
+
+#hippophobie-79{
+	
+}
+
+#trypophobie-80{
+	
+}
+
+#mycophobie-81{
+	
+}
+
+#selenophobie-82{
+	
+}
+
+#acerophobie-83{
+	
+}
+
+#ithyphallophobie-84{
+	
+}
+
+#musicophobie-85{
+	
+}
+
+#pantophobie-86{
+	
+}
+
+#stasophobie-87{
+	
+}
+
+#apopathodiaphulatophobie-88{
+	
+}
+
+#phagophobie-89{
+	
+}
+
+#epistaxiophobie-90{
+	
+}
+
+#halitophobie-91{
+	
+}
+
+#taphophobie-92{
+	
+}
+
+#apeirophobie-93{
+	
+}
+
+#ecclesiophobie-94{
+	
+}
+
+#maskaphobie-95{
+	
+}
+
+#teratophobie-96{
+	
+}
+
+#kenophobie-97{
+	
+}
+
+#angrophobie-98{
+	
+}
+
+#atychiphobie-99{
+	
+}
+
+#pogonophobie-100{
+	
+}
+
+#fumiphobie-101{
+	
+}
+
+#gerascophobie-102{
+	
+}
+
+#graphophobie-103{
+	
+}
+
+#hypegiaphobie-104{
+	
+}
+
+#katagelophobie-105{
+	
+}
+
+#trichophobie-106{
+	
+}
+
+#cyclophobie-107{
+	
+}
+
+#catapedaphobie-108{
+	
+}
+
+#climacophobie-109{
+ 	margin-left: 406px;
+    margin-top: 25604px;	
+}
+
+/** ******* **/
+/** ******* **/
+/** UNIVERS **/
+/** ******* **/
+/** ******* **/
+
+.paradis{
+	position: absolute;
+	top: 0;
+	background:url("../img/01-paradis.jpg") no-repeat #E3FEFF;
+	height: 3667px;	
+	z-index: 1;
+	width: 100%;
+	background-position: 50%;
+}
+
+.neige{
+	position: absolute;
+	top: 3666px;
+	background:url("../img/02-neige.jpg") no-repeat #E3FEFF;
+	height: 3667px;	
+	z-index: 1;
+	width: 100%;
+	background-position: 50%;
+}
+
+.verdure{
+	position: absolute;
+	top: 7332px;
+	background:url("../img/03-verdure.jpg") no-repeat #E3FEFF;
+	height: 3668px;	
+	z-index: 1;
+	width: 100%;
+	background-position: 50%;
+}
+
+.automne{
+	position: absolute;
+	top: 10998px;
+	background:url("../img/04-automne.png") no-repeat #E3FEFF;
+	height: 3672px;	
+	z-index: 1;
+	width: 100%;
+	background-position: 50%;		
+}
+
+.desert{
+	position: absolute;
+	top: 14670px;
+	background:url("../img/05-desert.png") no-repeat #E4FEFF;
+	background-position: 50%;
+	height: 3666px;	
+	z-index: 1;
+	width: 100%;
+}
+
+.crepuscule{
+	position: absolute;
+	top: 18336px;
+	background:url("../img/06-crepuscule.png") no-repeat #E4FEFF;
+	height: 4100px;	
+	z-index: 1;
+	width: 100%;
+	background-position: 50%;
+}
+
+.enfer{
+	position: absolute;
+	top: 22436px;
+	background:url("../img/09-enfer.png") no-repeat #211D17;
+	background-position: 50%;
+	height: 3666px;	
+	z-index: 1;
+	width: 100%;
+}
+
+#enfer-dessus{
+	position: absolute;
+	top: 22436px;
+	background:url("../img/09-enfer-dessus.png") no-repeat;
+	background-position: 50%;
+	height: 3666px;	
+	z-index: 3;
+	width: 100%;
+}
+
+#animations{
+	width: 980px;
+	margin: 0 auto;
+	z-index: 2;
+	
+}
+
+/** ELEMENTS VERDURE **/
+#moutons-verdure{
+	position: absolute;
+	top: 8976px;
+	background:url("../img/gif-moutons.gif") no-repeat;
+	background-size: 160px;
+	height: 150px;	
+	z-index: 2;
+	width: 100%;	
+	margin-left: 320px;		
+}
+
+/** ELEMENTS ENFER **/
+.lave-montagne-01{
+	position: absolute;
+	background: url("../img/gif-lave-montagne-01.gif") no-repeat;
+	background-size: 65px;
+	top: 22179px;
+	height: 80px;
+	width: 100%;
+	z-index: 4;
+	margin-left: 48px;
+}
+
+.lave-montagne-02{
+	position: absolute;
+	background: url("../img/gif-lave-montagne-02.gif") no-repeat;
+	background-size: 210px;
+	top: 21963px;
+	height: 240px;
+	width: 100%;
+	z-index: 4;
+	margin-left: 89px;
+}
+
+.lave-montagne-03{
+	position: absolute;
+	background: url("../img/gif-lave-montagne-01.gif") no-repeat;
+	background-size: 85px;
+	top: 22173px;
+	height: 100px;
+	width: 100%;
+	z-index: 4;
+	margin-left: 295px;
+}
+
+.lave-montagne-04{
+	position: absolute;
+	background: url("../img/gif-lave-montagne-02.gif") no-repeat;
+	background-size: 65px;
+	top: 22155px;
+	height: 100px;
+	width: 100%;
+	z-index: 4;
+	margin-left: 488px;
+}
+
+.lave-montagne-05{
+	position: absolute;
+	background: url("../img/gif-lave-montagne-01.gif") no-repeat;
+	background-size: 210px;
+	top: 21923px;
+	height: 240px;
+	width: 100%;
+	z-index: 4;
+	margin-left: 524px;
+}
+
+.lave-montagne-06{
+	position: absolute;
+	background: url("../img/gif-lave-montagne-02.gif") no-repeat;
+	background-size: 210px;
+	top: 22030px;
+	height: 240px;
+	width: 100%;
+	z-index: 4;
+	margin-left: 738px;
+}
+
+@-webkit-keyframes oiseau-gauche-droite {
+    0%{margin-left:0px;}
+    25%{margin-top:30px }
+    35%{margin-top: 10px}
+    50%{margin-top: 50px;}
+    75%{margin-top: 80px;}
+    100%{margin-left: 900px;}  
+}
+
+@keyframes oiseau-gauche-droite {
+    0%{margin-left:0px;}
+    25%{margin-top:30px }
+    35%{margin-top: 10px}
+    50%{margin-top: 50px;}
+    75%{margin-top: 80px;}
+    100%{margin-left: 900px;}  
+}
+
+.oiseau-montagne-01{
+	background: url("../img/oiseau-montagne-01.png") no-repeat;
+	background-size: 40px;
+	width: 100%;
+	height: 60px;
+	z-index: 2;
+	margin-left: 370px;
+	position: absolute;
+	top: 22520px;
+	-webkit-animation: oiseau-gauche-droite 20.625s infinite linear;
+    animation: oiseau-gauche-droite 20.625s infinite linear;	
+}
+
+.oiseau-montagne-02{
+	background: url("../img/oiseau-montagne-02.png") no-repeat;
+	background-size: 40px;
+	width: 100%;
+	height: 70px;
+	z-index: 2;
+	position: absolute;
+	top: 22480px;
+	margin-left: 200px;
+	-webkit-animation: oiseau-gauche-droite 15.625s infinite linear;
+    animation: oiseau-gauche-droite 15.625s infinite linear;
+}
+
+.oiseau-montagne-03{
+	background: url("../img/oiseau-montagne-03.png") no-repeat;
+	background-size: 30px;
+	width: 100%;
+	margin-left: 260px;
+	height: 46px;
+	z-index: 2;
+	position: absolute;
+	top: 22590px;
+	-webkit-animation: oiseau-gauche-droite 23.625s infinite linear;
+    animation: oiseau-gauche-droite 23.625s infinite linear;
+}
+
+.oiseau-montagne-04{
+	background: url("../img/oiseau-montagne-04.png") no-repeat;
+	background-size: 25px;
+	width: 100%;
+	height: 50px;
+	z-index: 2;
+	position: absolute;
+	top: 22530px;
+	margin-left: 150px;
+	-webkit-animation: oiseau-gauche-droite 12.625s infinite linear;
+    animation: oiseau-gauche-droite 12.625s infinite linear;
+}
+
+.oiseau-montagne-05{
+	background: url("../img/oiseau-montagne-05.png") no-repeat;
+	background-size: 20px;
+	margin-left: 180px;
+	width: 100%;
+	height: 25px;
+	z-index: 2;
+	position: absolute;
+	top: 22580px;
+	-webkit-animation: oiseau-gauche-droite 29.625s infinite linear;
+    animation: oiseau-gauche-droite 29.625s infinite linear;
+}
+
+.oiseau-montagne-06{
+	background: url("../img/oiseau-montagne-06.png") no-repeat;
+	background-size: 35px;
+	margin-left: 260px;
+	width: 100%;
+	height: 50px;
+	z-index: 2;
+	position: absolute;
+	top: 22490px;
+	-webkit-animation: oiseau-gauche-droite 27.625s infinite linear;
+    animation: oiseau-gauche-droite 27.625s infinite linear;
+}
+
+#element-trex{
+	position: absolute;
+	top: 23430px;
+	background:url("../img/elements-trex.png") no-repeat;
+	background-size: 376px;
+	height: 409px;	
+	z-index: 4;
+	width: 100%;	
+	margin-left: 737px;		
+}
+
+#element-dino{
+	position: absolute;
+	top: 24106px;
+	background:url("../img/elements-dino.png") no-repeat;
+	background-size: 258px;
+	height: 301px;	
+	z-index: 4;
+	width: 100%;	
+	margin-left: 168px;		
+}
+
+@-webkit-keyframes trex {
+    0% {-webkit-transform: rotate(0deg);}
+    50% {-webkit-transform: translate(0px, -5px) rotate(0.2deg);}
+    100% {-webkit-transform: translate(0px, 0.3px) rotate(0deg);} 
+}
+
+@keyframes trex {
+    0% {transform: rotate(0deg);}
+    50% {transform: translate(0px, 5px) rotate(0.2deg);}
+    100% {transform: translate(0px, 0.3px) rotate(0deg);} 
+}
+
+.gueule-trex{
+	position: absolute;
+	top: 23494px;
+	background:url("../img/gif-trex.png") no-repeat;
+	background-size: 100px;
+	height: 85px;	
+	z-index: 4;
+	width: 100%;	
+	margin-left: 788px;	
+	-webkit-animation: trex 0.7625s infinite linear;
+    animation: trex 0.7625s infinite linear;
+}
+
+.lave-top-left{
+	position: absolute;
+	top: 25756px;
+	background:url("../img/gif-lave-bottom.gif") no-repeat;
+	background-size: 50px;
+	height: 180px;	
+	z-index: 2;
+	width: 100%;	
+	margin-left: 116px;		
+}
+
+.lave-top-right{
+	position: absolute;
+	top: 25686px;
+	background:url("../img/gif-lave-bottom.gif") no-repeat;
+	background-size: 70px;
+	height: 250px;	
+	z-index: 2;
+	width: 100%;	
+	margin-left: 646px;		
+}
+
+.lave-bottom-right{
+	position: absolute;
+	top: 24796px;
+	background:url("../img/gif-lave-02.gif") no-repeat;
+	background-size: 100px;
+	height: 340px;	
+	z-index: 2;
+	width: 100%;	
+	margin-left: 860px;	
+}
+
+.lave-bottom-left{
+	position: absolute;
+	top: 24899px;
+	background:url("../img/gif-lave-01.gif") no-repeat;
+	background-size: 50px;
+	height: 180px;	
+	z-index: 2;
+	width: 100%;	
+	margin-left: 90px;
+}
+
+/** ******* **/
+/** ******* **/
+/** ASSETS  **/
+/** ******* **/
+/** ******* **/
+.gototop{
+  display: block;
+  position: fixed;
+  z-index: 2;
+  margin: 0 auto;
+  width: 42px;
+  height: 42px;
+  bottom: 15px;
+  right: 15px;
+  background: #D1723C url('../img/gototop.png') center no-repeat;
+  background-size: 15px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+  box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.gototop:hover{
+	background: #E9DEB3 url('../img/gototop.png') center no-repeat;
+	background-size: 15px;
+}
+
+.btn-depart {
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  display: table;
+  height: 78px;
+  line-height: 78px;
+  margin: 0 auto;
+  padding: 0 50px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #b5bf01;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px -7px 0px 0px inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px -7px 0px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px -7px 0px 0px inset;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* RESPONSIVE AVERTISSEMENT */
+
+/* *********** */
+/** ECRAN 1130px **/
+@media screen and (max-width: 980px) {
+.md-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	visibility: visible;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	background-color: #fff;
+	opacity: 1;
+	-webkit-transition: all 0s;
+	-moz-transition: all 0s;
+	transition: all 0s;
+}
+
+.md-overlay p{
+	text-align: center;
+	width: 100%;
+	margin-top: 25%;	
+}
+
+.md-show ~ .md-overlay {
+	opacity: 1;
+	visibility: visible;
+}
+
+}
