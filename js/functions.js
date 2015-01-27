@@ -143,3 +143,17 @@ function PhobieInclassable(){
     $(".inclassable").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport" ).animate({ opacity: 0.1 }, 400);
 }
+
+
+	
+// load csv file using d3
+d3.csv('kls-phobies.csv', function(res) {
+if(!res) {
+console.log('file not found or network error');
+return;
+}
+// save locally csv data
+csv = res;
+// let's call our draw function
+draw();
+});
