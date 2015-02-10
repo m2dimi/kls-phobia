@@ -1,9 +1,53 @@
 // **************
 // **************
-// Faire disparaitre l'écran d'accueil au clique du bouton
-function SupprimerOverlay(){
-    $( "#overlay-home" ).fadeOut();
-}
+// Forcer le gototop au reload
+$(document).ready(function(){
+    $(window).scrollTop(0);
+});
+
+// **************
+// **************
+// Faire apparaitre les consignes
+$(function() {
+	setTimeout(function($) {
+		document.getElementById("content-nav").style.visibility = "visible";
+		document.getElementById("liste-phobies").style.visibility = "visible";
+		document.getElementById("timeline-left").style.visibility = "visible";
+	}, 1000); 
+    setTimeout(function($) {
+    	jQuery( ".wallpaper-loading" ).slideToggle();
+	}, 4000); 
+});
+
+$(function() {
+    setTimeout(function($) {
+    jQuery('#consigne-01').animate({'top': '90', opacity: 1}, 1000);
+	}, 4300);  
+});
+
+$(function() {
+	$('.bt-compris-01').bind("click touchstart", function(){
+		    jQuery('#consigne-01').animate({'top': '70', opacity: 0}, 1000);
+			jQuery('#consigne-02').animate({'top': '90', opacity: 1}, 1000);
+	});
+});
+
+$(function() {
+	$('.bt-compris-02').bind("click touchstart", function(){
+    	jQuery('#consigne-02').animate({'top': '70', opacity: 0}, 1000);
+		jQuery('#consigne-03').animate({'top': '200', opacity: 1}, 1000);
+	});
+});
+
+$(function() {
+	$('.bt-compris-03').bind("click touchstart", function(){
+    	jQuery('#consigne-03').animate({'top': '180', opacity: 0}, 1000);
+		jQuery("#contenu-consignes").fadeOut();
+		jQuery(".overlay-gris").fadeOut();
+		document.body.style.overflowY = "auto";
+		jQuery('html, body').animate({scrollTop:25332}, 6000);
+	});
+});
 
 // **************
 // **************
@@ -22,29 +66,6 @@ $(function() {
     }
   });
 });
-
-// **************
-// **************
-// Afficher le logo en fondu et de haut en bas
-function FadeLogoHome() {
-    setTimeout(function($) {
-    jQuery('.full-montagne').animate({'marginTop': '40px', opacity: 1}, 1000);
-    jQuery('#content-overlay').animate({ opacity: 1}, 1000);
-	}, 500);  
-	setTimeout(function($) {
-    jQuery('.hair-montagne').animate({opacity: 1}, 390);
-	}, 1300); 
-}
-
-
-/*
-// Permettre le scrollDown après 2sec de chargement
-function scrollToBottom() {
-    setTimeout(function($) {
-    jQuery('html, body').animate({scrollTop:jQuery(document).height()}, 6000);
-	}, 2000);   
-}
-*/
 
 // **************
 // **************
@@ -144,16 +165,96 @@ function PhobieInclassable(){
     $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport" ).animate({ opacity: 0.1 }, 400);
 }
 
-
-	
-// load csv file using d3
-d3.csv('kls-phobies.csv', function(res) {
-if(!res) {
-console.log('file not found or network error');
-return;
-}
-// save locally csv data
-csv = res;
-// let's call our draw function
-draw();
+// Timeline avec position entre deux valeurs en pixels
+// ******
+// ******
+// Paradis
+$(window).scroll(function() { 
+    if(window.scrollY >= 0 && window.scrollY <= 3665) {
+         $(".nav-univers-paradis").addClass("selector-timeline");
+    } else{
+	    $(".nav-univers-paradis").removeClass("selector-timeline");
+    }
 });
+
+// ******
+// ******
+// Neige
+$(window).scroll(function() { 
+    if(window.scrollY >= 3666 && window.scrollY <= 7331) {
+         $(".nav-univers-neige").addClass("selector-timeline");
+    } else{
+	    $(".nav-univers-neige").removeClass("selector-timeline");
+    }
+});
+
+// ******
+// ******
+// Verdure
+$(window).scroll(function() { 
+    if(window.scrollY >= 7332 && window.scrollY <= 10997) {
+         $(".nav-univers-verdure").addClass("selector-timeline");
+    } else{
+	    $(".nav-univers-verdure").removeClass("selector-timeline");
+    }
+});
+
+// ******
+// ******
+// Automne
+$(window).scroll(function() { 
+    if(window.scrollY >= 10998 && window.scrollY <= 14664) {
+         $(".nav-univers-automne").addClass("selector-timeline");
+    } else{
+	    $(".nav-univers-automne").removeClass("selector-timeline");
+    }
+});
+
+// ******
+// ******
+// Desert
+$(window).scroll(function() { 
+    if(window.scrollY >= 14665 && window.scrollY <= 18331) {
+         $(".nav-univers-desert").addClass("selector-timeline");
+    } else{
+	    $(".nav-univers-desert").removeClass("selector-timeline");
+    }
+});
+
+// ******
+// ******
+// Crepuscule
+$(window).scroll(function() { 
+    if(window.scrollY >= 18332 && window.scrollY <= 22431) {
+         $(".nav-univers-crepuscule").addClass("selector-timeline");
+    } else{
+	    $(".nav-univers-crepuscule").removeClass("selector-timeline");
+    }
+});
+
+// ******
+// ******
+// Enfer
+$(window).scroll(function() { 
+    if(window.scrollY >= 22432){
+         $(".nav-univers-enfer").addClass("selector-timeline");
+    } else{
+	     $(".nav-univers-enfer").removeClass("selector-timeline");
+    } 
+});
+
+// Fonction hover touch
+$(document).ready(function() {
+    $('.tooltip').bind('touchstart touchend', function(e) {
+        e.preventDefault();
+    });
+});
+
+// *****************
+// Partager sur facebook
+// Bouton partager Facebook
+function fbShare(url, title, descr, image, winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+}

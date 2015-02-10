@@ -1,722 +1,1225 @@
 <!DOCTYPE html>
 <html>    
     <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>LA MONTAGNE DES PHOBIES</title>
-        <meta name="description" content="Projet Graphisme Dynamique - Sacha MOCQUET" />
+        
+        <link rel="image_src" href="img/logo-montagne.png" />
+        
+        <meta property="og:title" content="LA MONTAGNE DES PHOBIES" />
+        <meta property="og:description" content="Parcourez et découvrez le top 100 des phobies les plus populaires dans le monde !" />
+        <meta property="og:image" content="img/logo-montagne.png" />
+        <meta property="og:image" content="img/logo-montagne.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="120" />
+        <meta property="og:image:height" content="120" />      
+         
+        <meta name="description" content="La Montagne des Phobies - Parcourez et découvrez le top 100 des phobies les plus populaires dans le monde !" />
         <link href='http://fonts.googleapis.com/css?family=McLaren' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" /> 
         <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" src="js/phobies-autocomplete.js"></script>
         <script type="text/javascript" src="js/functions.js"></script>   
     </head>
     
-    <!-- <body id="page" class="recherche-page" onload="scrollToBottom();"> -->
-    <body id="page" class="recherche-page" onload="FadeLogoHome();">
-    <div class="md-overlay"><p>RESOLUTION TROP BASSE !</p></div>
-    <div id="overlay-home">
-    <p class="logo-overlay full-montagne" style="z-index:999;"><img src="img/logo-montagne.png" alt="logo montagne de la peur" /></p>
-    <p class="logo-overlay hair-montagne"><img src="img/logo-montagne-hair.png" alt="logo montagne de la peur" /></p>
-	    	<div id="content-overlay">
-	    			  
-		    	<p class="desc-overlay">
-			    	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.</p>
-			    	
-			    	<div id="content-bt-overlay"><p class="bt-overlay" onclick="SupprimerOverlay();" id="bouton-en-avant">J'ai pas peur !</p></div>
-		    	
-	    	</div>
-    	</div>
-    	
+    <body id="page" class="recherche-page">
+	    
+	<div class="md-overlay"></div>
+	
+    <div class="wallpaper-loading"></div>
+	        
+	<div id="contenu-consignes">			        
+	      	<div id="consigne-01" class="tooltip">
+		  		<div> 
+			  		<img class="callout" src="img/callout.gif" alt="popup" />
+			  		<p style="font-weight:bold;">Filtrez les phobies selon leur nature !</p>
+			  		<p class="bt-compris-01">C'est compris &nbsp;</p>
+				</div>
+			</div>	
+			
+			<div id="consigne-02" class="tooltip">
+		  		<div> 
+			  		<img class="callout" src="img/callout.gif" alt="popup" />
+			  		<p style="font-weight:bold;">Recherchez une phobie par son nom !</p>
+			  		<p class="bt-compris-02">OK, c'est cool &nbsp;</p>
+				</div>
+			</div>
+			
+			<div id="consigne-03" class="tooltip">
+		  		<div> 
+			  		<img class="callout" src="img/callout.gif" alt="popup" />
+			  		<p style="font-weight:bold; line-height:20px;">Cliquez pour parcourir la montagne selon la popularité des phobies !</p>
+			  		<p class="bt-compris-03">Allez, c'est parti &nbsp;</p>
+				</div>
+			</div>			
+			
+	</div>
+	
+    <div class="overlay-gris"></div>
+	        
     	<div id="logo-montagne"></div>
 
-        <h1 id="top">LA MONTAGNE DES PHOBIES</h1>
-        <span class="pixels"></span>
+        <!-- <div class="pixels"></div>-->
         
-        <!-- SYSTEME DE FILTRES -->
-	        <ul id="caracteristiques">
-	            <li id="all-phobies" onclick="PhobieAll();">Tout afficher</li>
-	            <li id="elements-naturels" onclick="PhobieElementsNaturels();">Elément naturel</li>
-	            <li id="gustatifs" onclick="PhobieGustatifs();">Gustatif</li>
-	            <li id="animal" onclick="PhobieAnimal();">Animal</li>
-	            <li id="vertige" onclick="PhobieVertige();">Vertige</li>
-	            <li id="sante" onclick="Phobiesante();">Santé</li>
-	            <li id="mythe-religion" onclick="PhobieMytheReligion();">Mythe et Religion</li>
-	            <li id="objet" onclick="PhobieObjet();">Objet</li>
-	            <li id="obscurite" onclick="PhobieObscurite();">Obscurité</li>
-	            <li id="social" onclick="PhobieSocial();">Social</li>
-	            <li id="transport" onclick="PhobieTransport();">Transport</li>
-	            <li id="inclassable" onclick="PhobieInclassable();">Insolite</li>
-	        </ul>
+        <!-- TIMELINE -->
+        
+        <div id="timeline-left">
+	        <a href="#lien-paradis" class="nav-univers nav-univers-paradis selector-timeline"></a>
+	        <a href="#lien-neige" class="nav-univers nav-univers-neige"></a>
+	        <a href="#lien-verdure" class="nav-univers nav-univers-verdure"></a>
+	        <a href="#lien-automne" class="nav-univers nav-univers-automne"></a>
+	        <a href="#lien-desert" class="nav-univers nav-univers-desert"></a>
+	        <a href="#lien-crepuscule" class="nav-univers nav-univers-crepuscule"></a>
+	        <a href="#lien-enfer" class="nav-univers nav-univers-enfer"></a>
+        </div>
+        
+        <div id="content-nav">
+        <nav>
+        	 	<div id="all-phobies" onclick="PhobieAll();">Tout</div>
+	            <div id="elements-naturels" onclick="PhobieElementsNaturels();">Nature</div>
+	            <div id="social" onclick="PhobieSocial();">Social</div>
+	            <div id="gustatifs" onclick="PhobieGustatifs();">Gustatif</div>
+	            <div id="inclassable" onclick="PhobieInclassable();">Insolite</div>      	         
+	            <div id="animal" onclick="PhobieAnimal();">Animal</div>
+	            <div id="transport" onclick="PhobieTransport();">Transport</div>
+	            <div id="vertige" onclick="PhobieVertige();">Vertige</div>
+	            <div id="mythe-religion" onclick="PhobieMytheReligion();">Croyance</div>
+	            <div id="sante" onclick="Phobiesante();">Santé</div>
+	            <div id="obscurite" onclick="PhobieObscurite();">Obscurité</div>
+	            <div id="objet" onclick="PhobieObjet();">Objet</div>        
+        </nav>
+        
+        		<div id="searchfield">
+	        		<form>
+	        			<input type="text" name="phobie" class="biginput" id="autocomplete" placeholder="Rechercher...">
+	        		</form>
+	        	</div>
+        </div>
         
         <!-- LISTE DES PHOBIES -->
         <div id="liste-phobies">
+	
 	        <div id="agoraphobie-01" class="social tooltip"><!-- agoraphobie-->
-		        <span> 
-		        	<img class="callout" src="img/callout.gif" />
+		        <div> 
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
 		        	<strong>Agoraphobie</strong><br /> 
-		        	Peur des espaces publics et, par extension, de la foule.
-		        </span>
+		        	<p class="bubble-color-brown">Peur des espaces publics et, par extension, de la foule.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="arachnophobie-02" class="animal tooltip"><!--arachnophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Arachnophobie</strong><br /> Peur des araignées.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Arachnophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des araignées.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="dysmorphophobie-03" class="sante tooltip"><!--dysmorphophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Dysmorphophobie</strong><br /> Peur des anomalies physiques.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Dysmorphophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des anomalies physiques.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="aviophobie-04" class="transport tooltip"><!--aviophobie-->
-		         <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Aviophobie</strong><br /> Peur de prendre l'avion.
-		        </span>
+		         <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Aviophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de prendre l'avion.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="hematophobie-05" class="sante tooltip"><!--hématophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Hematophobie</strong><br /> Peur du contact et de la vue du sang.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Hematophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du contact et de la vue du sang.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="astraphobie-06" class="elements-naturels tooltip"><!--astraphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Astraphobie</strong><br /> Peur du tonnerre.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Astraphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du tonnerre.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="aquaphobie-07" class="elements-naturels tooltip"><!--aquaphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Aquaphobie</strong><br /> Peur de l'eau.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Aquaphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l'eau.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="cynophobie-08" class="animal tooltip"><!--cynophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Cynophobie</strong><br /> Peur des chiens.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Cynophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des chiens.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="ophiophobie-09" class="animal tooltip"><!--ophiophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ophiophobie</strong><br /> Peur des serpents.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Ophiophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des serpents.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="emetophobie-10" class="sante tooltip"><!--emetophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Émétophobie</strong><br /> Peur de vomir.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Émétophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de vomir.</p>
+		        	<p class="bubble-popularite">Super populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="mysophobie-11" class="sante tooltip"><!--mysophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Mysophobie</strong><br /> Peur de la saleté, de la contamination par les microbes..
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Mysophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la saleté, de la contamination par les microbes...</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="nyctophobie-12" class="obscurite tooltip"><!--nyctophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Nyctophobie</strong><br /> Peur du noir.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Nyctophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du noir.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant</p>
+		        </div>
 	        </div>
 	        <div id="autophobie-13" class="social tooltip"><!--autophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Autophobie</strong><br /> Peur de la solitude.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Autophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la solitude.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="ablutophobie-14" class="elements-naturels tooltip"><!--ablutophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ablutophobie</strong><br /> Peur de se baigner. Cette phobie est plus une peur de la noyade qu'une peur de l'eau.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Ablutophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de se baigner. Cette phobie est plus une peur de la noyade qu'une peur de l'eau.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="achmophobie-15" class="objet tooltip"><!--achmophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Achmophobie</strong><br /> Peur des aiguilles et des objets pointus (ciseaux, couteaux, seringues par exemple).
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Achmophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des aiguilles et des objets pointus.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="glossophobie-16" class="social tooltip"><!--glossophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Glossophobie</strong><br /> Peur de parler en public.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Glossophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de parler en public.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="claustrophobie-17" class="social tooltip"><!--claustrophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Claustrophobie</strong><br /> Peur des espaces confinés.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Claustrophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des espaces confinés.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="acrophobie-18" class="vertige tooltip"><!--acrophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Acrophobie</strong><br /> Peur des hauteurs ; s'accompagne souvent de vertiges.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Acrophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des hauteurs ; s'accompagne souvent de vertiges.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="aerodromophobie-19" class="transport tooltip"><!--aerodromophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Aérodromophobie</strong><br /> Peur de l'avion, des voyages en avion.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Aérodromophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l'avion, des voyages en avion.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="ailurophobie-20" class="mythe-religion tooltip"><!--ailurophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ailurophobie</strong><br /> Peur des chats.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Ailurophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des chats.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="zoophobie-21" class="animal tooltip"><!--zoophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Zoophobie</strong><br /> Peur générale des animaux.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Zoophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur générale des animaux.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="bacillophobie-22" class="sante tooltip"><!--bacillophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Bacillophobie</strong><br /> Peur des bacilles, des bactéries.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Bacillophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des bacilles, des bactéries.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="nomophobie-23" class="social tooltip"><!--nomophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Nomophobie</strong><br /> Peur d'être séparé de son téléphone portable. Cette phobie désignerait aussi la peur excessive des lois.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Nomophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'être séparé de son téléphone portable. Cette phobie désignerait aussi la peur excessive des lois.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="coulrophobie-24" class="mythe-religion tooltip"><!--coulrophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Coulrophobie</strong><br /> Peur des clowns.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Coulrophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des clowns.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="leucoselophobie-25" class="social tooltip"><!--leucosélophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Leucoselophobie</strong><br /> Peur de la page blanche (blocage de l'écrivain.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Leucoselophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la page blanche (blocage de l'écrivain).</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="necrophobie-26" class="sante tooltip"><!--necrophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Nécrophobie</strong><br /> Peur des cadavres.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Nécrophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des cadavres.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="haptophobie-27" class="social tooltip"><!--haptophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Haptophobie</strong><br /> Peur d'être touché.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Haptophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'être touché.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="nosophobie-28" class="sante tooltip"><!--nosophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Nosophobie</strong><br /> Peur de la maladie, d'être malade.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Nosophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la maladie, d'être malade.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="scopophobie-29" class="social tooltip"><!--scopophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Scopophobie</strong><br /> Peur du regard des autres.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Scopophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du regard des autres.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="gephyrophobie-30" class="vertige tooltip"><!--gephyrophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Géphyrophobie</strong><br /> Peur des ponts (ou de traverser les ponts).
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Géphyrophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des ponts (ou de traverser les ponts).</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="apiphobie-31" class="animal tooltip"><!--apiphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Apiphobie</strong><br /> Peur des abeilles. Par extension, peur des insectes possédant un dard ou pouvant piquer.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Apiphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des abeilles. Par extension, peur des insectes possédant un dard ou pouvant piquer.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="pediophobie-32" class="objet tooltip"><!--pediophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Pédiophobie</strong><br /> Peur et rejet des enfants (aussi : peur des poupées).
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Pédiophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur et rejet des enfants (aussi : peur des poupées).</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="thanatophobie-33" class="sante tooltip"><!--thanatophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Thanatophobie</strong><br /> Peur de la mort.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Thanatophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la mort.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="ereutophobie-34" class="social tooltip"><!--ereutophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ereutophobie</strong><br /> Peur de rougir en public.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Éreutophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de rougir en public.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="telephonophobie-35" class="social tooltip"><!--telephonophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Téléphonophobie</strong><br /> Peur de répondre au téléphone.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Téléphonophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de répondre au téléphone.</p>
+		        	<p class="bubble-popularite">Très populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="pyrophobie-36" class="elements-naturels tooltip"><!--pyrophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Pyrophobie</strong><br /> Peur du feu.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Pyrophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du feu.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="acarophobie-37" class="sante tooltip"><!--acarophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Acarophobie</strong><br /> Peur des parasites de la peau, des acariens.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Acarophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des parasites de la peau, des acariens.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="phobie-sociale-38" class="social tooltip"><!--phobie sociale-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Phobie sociale</strong><br /> Peur des ou de certaines situations sociales.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Phobie sociale</strong><br />
+		        	<p class="bubble-color-brown">Peur des ou de certaines situations sociales.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="algophobie-39" class="sante tooltip"><!--algophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Algophobie</strong><br /> Peur de la douleur.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Algophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la douleur.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="anthropophobie-40" class="social tooltip"><!--anthropophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Anthropophobie</strong><br /> Peur des gens ou d'être en leur compagnie, une forme de phobie sociale.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Anthropophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des gens ou d'être en leur compagnie, une forme de phobie sociale.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="gymnophobie-41" class="social tooltip"><!--gymnophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Gymnophobie</strong><br /> Peur de la nudité.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Gymnophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la nudité.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>  
 	        <div id="herpetophobie-42" class="animal tooltip"><!--herpetophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Herpétophobie</strong><br /> Peur des reptiles ou amphibiens.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Herpétophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des reptiles ou amphibiens.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="achluophobie-43" class="obscurite tooltip"><!--achluophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Achluophobie</strong><br /> Peur de l'obscurité et du noir.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Achluophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l'obscurité et du noir.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant</p>
+		        </div>
 	        </div>
 	        <div id="tokophobie-44" class="sante tooltip"><!--tokophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Tokophobie</strong><br /> Peur d'accoucher.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Tokophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'accoucher.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="ochlophobie-45" class="social tooltip"><!--ochlophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ochlophobie</strong><br /> Peur de la foule.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Ochlophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la foule.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="thalassophobie-46" class="elements-naturels tooltip"><!--thalassophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Thalassophobie</strong><br /> Peur de la mer.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Thalassophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la mer.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>       
 	        <div id="basophobie-47" class="social tooltip"><!--basophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Basophobie</strong><br /> Peur de marcher.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Basophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de marcher.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="hylophobie-48" class="elements-naturels tooltip"><!--hylophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Hylophobie</strong><br /> Peur des forêts.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Hylophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des forêts.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="phobie-sang-49" class="inclassable tooltip"><!--phobie de type sang-injection-blessure-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Phobie de type sang-injection-blessure</strong><br /> Sous-type de phobies spécifiques classifié dans le DSM-IV.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Phobie de type sang-injection-blessure</strong><br />
+		        	<p class="bubble-color-brown">Sous-type de phobies spécifiques classifié dans le DSM-IV.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="carpophobie-50" class="gustatifs tooltip"><!--carpophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Carpophobie</strong><br /> Peur des fruits.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Carpophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des fruits.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="anginophobie-51" class="sante tooltip"><!--anginophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Anginophobie</strong><br /> Peur de l’étouffement, notamment par des angines de poitrine.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Anginophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l’étouffement, notamment par des angines de poitrine.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="nosocomephobie-52" class="sante tooltip"><!--nosocomephobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Nosocoméphobie</strong><br /> Peur des hôpitaux, cliniques et centres de soin en général.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Nosocoméphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des hôpitaux, cliniques et centres de soin en général.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>  
 	        <div id="entomophobie-53" class="animal tooltip"><!--entomophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Entomophobie</strong><br /> Peur des insectes.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Entomophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des insectes.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="ichthyophobie-54" class="animal tooltip"><!--ichthyophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ichthyophobie</strong><br /> Peur des poissons.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Ichthyophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des poissons.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="musophobie-55" class="animal tooltip"><!--musophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Musophobie</strong><br /> Peur des souris ou rats.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Musophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des souris ou rats.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="myrmecophobie-56" class="animal tooltip"><!--myrmécophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Myrmécophobie</strong><br /> Peur des fourmis.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Myrmécophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des fourmis.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="ornithophobie-57" class="animal tooltip"><!--ornithophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ornithophobie</strong><br /> Peur des oiseaux.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Ornithophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des oiseaux.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>              
 	        <div id="squalophobie-58" class="animal tooltip"><!--squalophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Squalophobie</strong><br /> Peur des requins.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Squalophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des requins.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="aerophobie-59" class="elements-naturels tooltip"><!--aerophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Aérophobie</strong><br /> Peur de l'air et du vent.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Aérophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l'air et du vent.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="brontophobie-60" class="elements-naturels tooltip"><!--brontophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Brontophobie</strong><br /> Peur du tonnerre.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Brontophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du tonnerre.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>   
 	        <div id="asthenophobie-61" class="sante tooltip"><!--asthenophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Asthénophobie</strong><br /> Peur de s'évanouir.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Asthénophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de s'évanouir.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="automysophobie-62" class="sante tooltip"><!--automysophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Automysophobie</strong><br /> Peur d'être sale, de sentir mauvais.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Automysophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'être sale, de sentir mauvais.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="borbophobie-63" class="sante tooltip"><!--borbophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Borbophobie</strong><br /> Peur des gargouillements.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Borbophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des gargouillements.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="cancerophobie-64" class="sante tooltip"><!--cancerophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Cancérophobie</strong><br /> Peur du cancer.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Cancérophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du cancer.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>        
 	        <div id="psychopathophobie-65" class="sante tooltip"><!--psychopathophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Psychopathophobie</strong><br /> Peur de devenir fou.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Psychopathophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de devenir fou.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="phasmophobie-66" class="mythe-religion tooltip"><!--phasmophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Phasmophobie</strong><br /> Peur des fantômes.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Phasmophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des fantômes.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>  
 	        <div id="theophobie-67" class="mythe-religion tooltip"><!--theophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Théophobie</strong><br /> Peur de Dieu.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Théophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de Dieu.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="belenophobie-68" class="objet tooltip"><!--belenophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Bélénophobie</strong><br /> Peur des aiguilles.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Bélénophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des aiguilles.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="anuptaphobie-69" class="social tooltip"><!--anuptaphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Anuptaphobie</strong><br /> Peur du célibat.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Anuptaphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du célibat.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="athazagoraphobie-70" class="social tooltip"><!--athazagoraphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Athazagoraphobie</strong><br /> Peur d'être oublié ou ignoré.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Athazagoraphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'être oublié ou ignoré.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="blemmophobie-71" class="social tooltip"><!--blemmophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Blemmophobie</strong><br /> Peur du regard des autres.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Blemmophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du regard des autres.</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>        
 	        <div id="phobophobie-72" class="social tooltip"><!--phobophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Phobophobie</strong><br /> Peur d'avoir peur (d'être surpris).
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Phobophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'avoir peur (d'être surpris).</p>
+		        	<p class="bubble-popularite">Populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="amaxophobie-73" class="transport tooltip"><!--amaxophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Amaxophobie</strong><br /> Peur de la conduite.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Amaxophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la conduite.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="siderodromophobie-74" class="transport tooltip"><!--Siderodromophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Sidérodromophobie</strong><br /> Peur de voyager en train.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Sidérodromophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de voyager en train.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="alektorophobie-75" class="animal tooltip"><!--alektorophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Alektorophobie</strong><br /> Peur des poulets.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Alektorophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des poulets.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="anthelmophobie-76" class="animal tooltip"><!--anthelmophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Anthelmophobie</strong><br /> Peur des vers.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Anthelmophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des vers.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="chiroptophobie-77" class="animal tooltip"><!--chiroptophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Chiroptophobie</strong><br /> Peur des chauves-souris.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Chiroptophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des chauves-souris.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>  
 	        <div id="cuniculophobie-78" class="animal tooltip"><!--cuniculophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Cuniculophobie</strong><br /> Peur des lapins.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Cuniculophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des lapins.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="hippophobie-79" class="animal tooltip"><!--hippophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Hippophobie</strong><br /> Peur des chevaux, des équidés.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Hippophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des chevaux, des équidés.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="trypophobie-80" class="elements-naturels tooltip"><!--trypophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Trypophobie</strong><br /> Peur des trous.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Trypophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des trous.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="mycophobie-81" class="elements-naturels tooltip"><!--mycophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Mycophobie</strong><br /> Peur des champignons.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Mycophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des champignons.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="selenophobie-82" class="elements-naturels tooltip"><!--selenophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Sélénophobie</strong><br /> Peur de la Lune.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Sélénophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la Lune.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>         
 	        <div id="acerophobie-83" class="gustatifs tooltip"><!--acerophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Acérophobie</strong><br /> Peur de ce qui a un goût sur (acide).
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Acérophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de ce qui a un goût sur (acide).</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="ithyphallophobie-84" class="inclassable tooltip"><!--ithyphallophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ithyphallophobie</strong><br /> Peur de voir des pénis en érection.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Ithyphallophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de voir des pénis en érection.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="musicophobie-85" class="inclassable tooltip"><!--musicophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Musicophobie</strong><br /> Peur de la musique.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Musicophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la musique.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="pantophobie-86" class="inclassable tooltip"><!--pantophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Pantophobie</strong><br /> Peur de tout.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Pantophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de tout.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="stasophobie-87" class="inclassable tooltip"><!--stasophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Stasophobie</strong><br /> Peur d'avoir à rester debout.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Stasophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'avoir à rester debout.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>  
 	        <div id="apopathodiaphulatophobie-88" class="sante tooltip"><!--apopathodiaphulatophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Apopathodiaphulatophobie</strong><br /> Peur d'être constipé ou de la constipation en elle-même.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Apopathodiaphulatophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'être constipé ou de la constipation en elle-même.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="phagophobie-89" class="sante tooltip"><!--phagophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Phagophobie</strong><br /> Peur de s'étouffer avec des aliments.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Phagophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de s'étouffer avec des aliments.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="epistaxiophobie-90" class="sante tooltip"><!--epistaxiophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Epistaxiophobie</strong><br /> Peur des saignements de nez.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Epistaxiophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des saignements de nez.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="halitophobie-91" class="sante tooltip"><!--halitophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Halitophobie</strong><br /> Peur d'avoir mauvaise haleine.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Halitophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'avoir mauvaise haleine.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="taphophobie-92" class="sante tooltip"><!--taphophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Taphophobie</strong><br /> Peur des tombes ou d'être enterré vivant.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Taphophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des tombes ou d'être enterré vivant.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>        
 	        <div id="apeirophobie-93" class="mythe-religion tooltip"><!--apeirophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Apéirophobie</strong><br /> Peur de l'infini.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Apéirophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l'infini.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="ecclesiophobie-94" class="mythe-religion tooltip"><!--ecclesiophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Ecclésiophobie</strong><br /> Peur des églises.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Ecclésiophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des églises.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="maskaphobie-95" class="mythe-religion tooltip"><!--maskaphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Maskaphobie</strong><br /> Peur des masques.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Maskaphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des masques.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="teratophobie-96" class="mythe-religion tooltip"><!--teratophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Tératophobie</strong><br /> Peur des monstres.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Tératophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des monstres.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant</p>
+		        </div>
 	        </div>
 	        <div id="kenophobie-97" class="obscurite tooltip"><!--kenophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Kénophobie</strong><br /> Peur de l'obscurité.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Kénophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l'obscurité.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant</p>
+		        </div>
 	        </div>  
 	        <div id="angrophobie-98" class="social tooltip"><!--angrophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Angrophobie</strong><br /> Peur de se mettre en colère en public.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Angrophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de se mettre en colère en public.</p>
+		        	<p class="bubble-popularite">Pas trop populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="atychiphobie-99" class="social tooltip"><!--atychiphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Atychiphobie</strong><br /> Peur de l'échec.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Atychiphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l'échec.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="pogonophobie-100" class="social tooltip"><!--pogonophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Pogonophobie</strong><br /> Aversion envers les barbes / Phobie des poils du menton et des joues.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Pogonophobie</strong><br />
+		        	<p class="bubble-color-brown">Aversion envers les barbes / Phobie des poils du menton et des joues.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="fumiphobie-101" class="social tooltip"><!--fumiphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Fumiphobie</strong><br /> Peur de la fumée (tabac par exemple).
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Fumiphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de la fumée (tabac par exemple).</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="gerascophobie-102" class="social tooltip"><!--gerascophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Gérascophobie</strong><br /> Peur de vieillir.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Gérascophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de vieillir.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>        
 	        <div id="graphophobie-103" class="social tooltip"><!--graphophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Graphophobie</strong><br /> Peur de l'écriture (fait d'écrire).
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Graphophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de l'écriture (fait d'écrire).</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="hypegiaphobie-104" class="social tooltip"><!--hypegiaphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Hypégiaphobie</strong><br /> Peur des responsabilités.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Hypégiaphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des responsabilités.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="katagelophobie-105" class="social tooltip"><!--katagelophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Katagélophobie</strong><br /> Peur du ridicule.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Katagélophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur du ridicule.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="trichophobie-106" class="social tooltip"><!--trichophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Trichophobie</strong><br /> Peur des poils et de la pilosité.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Trichophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur des poils et de la pilosité.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>
 	        <div id="cyclophobie-107" class="transport tooltip"><!--cyclophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Cyclophobie</strong><br /> Peur de monter sur une bicyclette ou tout autre véhicule à deux roues.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Cyclophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de monter sur une bicyclette ou tout autre véhicule à deux roues.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie moderne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>  
 	        <div id="catapedaphobie-108" class="vertige tooltip"><!--catapedaphobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Catapédaphobie</strong><br /> Peur de grimper en hauteur.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Catapédaphobie</strong><br />
+		        	<p class="bubble-color-brown">Peur de grimper en hauteur.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'adulte</p>
+		        </div>
 	        </div>     
 	        <div id="climacophobie-109" class="vertige tooltip"><!--climacophobie-->
-		        <span>
-		        	<img class="callout" src="img/callout.gif" />
-		        	<strong>Climacophobie</strong><br /> Peur d'utiliser des escaliers, surtout de les descendre.
-		        </span>
+		        <div>
+		        	<img class="callout" src="img/callout.gif" alt="popup" />
+		        	<strong>Climacophobie</strong><br />
+		        	<p class="bubble-color-brown">Peur d'utiliser des escaliers, surtout de les descendre.</p>
+		        	<p class="bubble-popularite">Vraiment pas populaire</p>
+		        	<p class="bubble-periode">Phobie ancienne</p>
+		        	<p class="bubble-adulte-enfant">Chez l'enfant & l'adulte</p>
+		        </div>
 	        </div>  
         </div>    
         
         <!-- ELEMENTS -->
-	        <div id="enfer-dessus"></div>
-	        <div id="element-trex"></div>
-	        <div id="element-dino"></div>
-        
+        	<div id="montagne-dessus"></div>
+        	<div id="enfer-dessus"></div>
+      
         <!-- ANIMATIONS -->
         	<div id="animations">
+        	
+        	<!-- Verdure + Neige -->
+        	<div id="nuage-dieu"></div> 
+        	<div id="main-dieu"></div>     	
 	        <div id="moutons-verdure"></div>
+	        <div id="telesieges"></div>
+	        <div id="yeti-neige"></div>
+	        <div id="yeti-neige-deux"></div>
+	        <div id="neige-chalet"></div>
+	        <div id="neige-chalet-deux"></div>
+	        <div id="bacchus"></div>
 	        
+	        <!-- Desert + Automne -->
+	        <div id="automne-mouton"></div> 
+        	<div id="automne-nuage"></div>
+        	<div id="automne-maison"></div> 
+        	<div id="automne-tournesol"></div>  
+        	<div id="automne-empreinte"></div>   	
+	        <div id="desert-buisson"></div>
+	        <div id="desert-vautour"></div>
+	           
 	        <!-- Lave Montagne -->
 	        <div class="lave-montagne-01"></div>
 	        <div class="lave-montagne-02"></div>
@@ -734,6 +1237,10 @@
 	        <div class="oiseau-montagne-06"></div>
 	        
 	        <div class="gueule-trex"></div>
+	        <div id="element-trex"></div>
+	        <div id="element-dino"></div>
+	        <div class="lave-middle-left"></div>
+	        <div class="lave-middle-right"></div>
 	        <div class="lave-bottom-left"></div>
 	        <div class="lave-bottom-right"></div>
 	        <div class="lave-top-right"></div>
@@ -742,23 +1249,25 @@
         </div>
         
         <!-- UNIVERS -->
-        <div class="univers paradis"></div>
-        <div class="univers neige"></div>
-        <div class="univers verdure"></div>
-        <div class="univers automne"></div>
-        <div class="univers desert"></div>
-        <div class="univers crepuscule"></div>
-        <div class="univers enfer"></div>
-                
-        <!-- BOUTON GO TO TOP -->
-        
+        <div id="lien-paradis" class="univers paradis"></div>
+        <div id="lien-neige" class="univers neige"></div>
+        <div id="lien-verdure" class="univers verdure"></div>
+        <div id="lien-automne" class="univers automne"></div>
+        <div id="lien-desert" class="univers desert"></div>
+        <div id="lien-crepuscule" class="univers crepuscule"></div>
+        <div id="lien-enfer" class="univers enfer"></div>
+                        
         <footer>
         <div id="content-full-footer">
-        <div id="content-left-logo"></div>
+        <div id="content-left-logo">
+	    <a target="_blank" style='text-decoration:none;' class="bt-share-facebook" title="Partager sur Facebook !" href="http://www.facebook.com/sharer.php?u=http://montagne-des-phobies.mocquet.com/">Partage sur Facebook !</a>
+	    <a href="https://twitter.com/share" class="twitter-share-button" data-via="Samka, @LiseFavoino et @mocquet_com !" data-url="http://montagne-des-phobies.mocquet.com/" data-text="Découvrez 'La Montagne des Phobies' : " data-count="none" data-hashtags="webdesign">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
         <div id="content-right-footer">
-		        <span><a href="#">La montagne des phobies</a> | Copyright 2015 | Crédits: <a href="http://lisefavoino.com/" target="_blank">Favoino</a> // <a href="http://mocquet.com/" target="_blank">Mocquet</a> // <a href="http://karelesamalens.com/" target="_blank">Samalens</a></span>
-		        <a class="gototop" href="#page" title="Haut de page"></a>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, do eiumod.</p>
+		        <div><a href="#">La montagne des phobies</a> | Copyright 2015 | Crédits: <a href="http://lisefavoino.com/" target="_blank">Favoino</a> // <a href="http://mocquet.com/" target="_blank">Mocquet</a> // <a href="http://karelesamalens.com/" target="_blank">Samalens</a></div>
+
+		        <p>Ce site a pour but de faire découvrir un <strong>top 100 des phobies</strong> dans le monde entier de manière ludique !<br />Notre étude s'est portée sur des données récoltées sur le web selon différentes sources comme <a target="_blank" href="http://wikipedia.com/">Wikipédia</a>, <a href="http://www.doctissimo.fr/" target="_blank">Doctissimo</a> ou encore <a href="http://www.vaincre-phobie.com/" target="_blank">Vaincre phobie</a> que nous avons mis en relation afin d'en tirer des statistiques (plus ou moins précises !). <br />Soyez sans crainte, la liste des phobies est non-exhaustive...Bonne visite !</p>
         </div>
         </div>
         <div id="copyright">
@@ -769,8 +1278,9 @@
 	        <div id="left-copyright-name"></div>
 	        <div id="middle-copyright-name"></div>
 	        <div id="right-copyright-name"></div>
+	        <p class="blank"></p>
         </div>
-        <footer>
+        </footer>
 
     </body>
 
