@@ -3103,6 +3103,10 @@ and (max-device-width : 480px) {
 	height: 900px;
 }
 
+#automne-nuage{
+	display: none;
+}
+	
 .md-overlay {
 	position: fixed;
 	width: 100%;
