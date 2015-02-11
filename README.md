@@ -21,3 +21,12 @@ Utilisation et navigation à l'intérieur du site :
 • Il est possible de naviguer sur le site avec le scroll ou bien en cliquant sur les différentes régions de la montagne située sur l'aperçu sur la droite du site, où un indicateur permet de savoir où l'on se situe sur la montagne.
 
 Merci et bonne visite !
+
+<strong>Inspirations</strong><br />
+<a href="http://vizua.sk/en">Vizua - Creative Studio</a><br />
+<a href="http://www.feriasparacurtir.com.br/apresentacao">Ferias para curtir</a><br />
+<a href="http://www.candy-land.com/candyland/">Candy Land</a>
+
+<strong>Librairies</strong><br />
+jQuery<br />
+jQuery Autocomplete
