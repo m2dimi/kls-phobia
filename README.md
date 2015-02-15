@@ -13,12 +13,15 @@ Nous avons souhaité proposer des phobies représentées par des monstres car ce
 
 Au survol de chaque phobie plusieurs caractéristiques apparaissent, à savoir :  le nom, la description, la popularité, la cible (enfant ou adulte ou les deux) et s'il s'agit d'une phobie ancienne ou moderne.
 
-Utilisation et navigation à l'intérieur du site :
+L'utilisation de d3.js a permi d'établir la timeline (à droite du site) permettant de situer les phobies selon le fichier phobies.csv selon leur popularité ! <br />
+Cependant, pour des soucis d'esthétiques, nous avons dû replacer de manière cohérente les phobies sur la montagne afin qu'elles ne soient pas les unes sur les autres et qu'elles soient placées de manière cohérente sur le décor et non pas aléatoirement (comme dans la timeline).
+
+Utilisation et navigation à l'intérieur du site :<br />
 • Il est possible de filtrer les phobies selon leur nature (sociale, insolite, animale, etc.), soit 11 au total, cela aura pour but de mettre en surbrillance les natures sélectionnées.
 
 • Il est possible de rechercher une phobie par son nom dans le champ de recherche en autocomplétion, cela aura pour but d'amener grâce à une ancre directement à la phobie correspondante.
 
-• Il est possible de naviguer sur le site avec le scroll ou bien en cliquant sur les différentes régions de la montagne située sur l'aperçu sur la droite du site, où un indicateur permet de savoir où l'on se situe sur la montagne.
+• Il est possible de naviguer sur le site avec le scroll de la souris ou bien en cliquant sur les étoiles à droite de la "timeline" représentant les stades de popularités des phobies.
 
 Merci et bonne visite !
 
@@ -28,5 +31,6 @@ Merci et bonne visite !
 <a href="http://www.candy-land.com/candyland/">Candy Land</a>
 
 <strong>Librairies</strong><br />
+d3.js<br />
 jQuery<br />
 jQuery Autocomplete
