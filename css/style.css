@@ -56,7 +56,7 @@ body{
 				position: fixed;
 				border: 10px solid #f9f0e6;
 				right: 0;
-				top: -7px;
+				top: 4px;
 				transition: all 0.25s ease-in-out 0s;
 				width: 100px;
 				z-index: 99;	
