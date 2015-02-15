@@ -36,6 +36,79 @@ body{
     overflow-y: hidden;
 }
 
+/** D3 JS **/
+		circle {
+		    opacity: .5;
+	    }
+	    
+	    circle:hover
+	    {
+		    cursor:pointer;
+	    }
+	    
+	    #echelle {
+		    height:453px;
+		    background:url("../img/bgk-echelle.jpg") no-repeat #F8E1C4;
+		        box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.19);
+				-moz-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+				-webkit-box-shadow: rgba(0, 0, 0, 0.19) 3px 3px 0px 0px;
+				opacity: 1;
+				position: fixed;
+				border: 10px solid #f9f0e6;
+				right: 0;
+				top: -7px;
+				transition: all 0.25s ease-in-out 0s;
+				width: 100px;
+				z-index: 99;	
+				visibility: hidden;
+
+	    }
+	    
+	    svg
+	    {
+		    margin: 12.5px 0 0 10px;
+		    width:70px;
+		    height:420px;
+		    position:absolute;
+		    z-index:20;
+	    }
+	    
+	    #background
+	    {
+		    margin: 12.5px 0 0 10px;
+		    width:70px;
+		    height:420px;
+		    position:absolute;
+		    z-index:999;
+	    }
+	    
+	    .level-1 {
+		    width:70px;
+		    height:120px;
+	    }
+	    
+	   .level-2 {
+		    width:70px;
+		    height:90px;
+	    }
+	    
+	    .level-3 {
+		    width:70px;
+		    height:72px;
+	    }
+	    
+	    .level-4 {
+		    width:70px;
+		    height:118px;
+	    }
+	    
+	    .level-5 {
+		    width:70px;
+		    height:22px;
+	    }
+	    
+/** **/
+
 /* OVERLAY ACCUEIL */
 /* OVERLAY ACCUEIL */
 .wallpaper-loading {
@@ -2660,14 +2733,13 @@ div.tooltip div {
 #desert-vautour{
 	position: absolute;
 	background: url("../img/desert-vautour.gif") no-repeat;
-	background-size: 600px;
-	height: 239px;
-    margin-left: 268px;
+	background-size: 1080px;
+	height: 444px;
+    margin-left: -50px;
     position: absolute;
-    top: 15579px;
-    width: 600px;
+    top: 15524px;
+    width: 1080px;
     z-index: 6;
-    display: none;
 }
 
 /** ELEMENTS ENFER **/
@@ -3103,9 +3175,9 @@ and (max-device-width : 480px) {
 	height: 900px;
 }
 
-#automne-nuage{
-	display: none;
-}
+	#automne-nuage{
+		display: none;
+	}
 	
 .md-overlay {
 	position: fixed;

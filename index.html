@@ -18,6 +18,7 @@
         <link href='http://fonts.googleapis.com/css?family=McLaren' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/style.css" />
         <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" /> 
+        <script src="http://d3js.org/d3.v3.min.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
         <script type="text/javascript" src="js/phobies-autocomplete.js"></script>
@@ -50,7 +51,7 @@
 			<div id="consigne-03" class="tooltip">
 		  		<div> 
 			  		<img class="callout" src="img/callout.gif" alt="popup" />
-			  		<p style="font-weight:bold; line-height:20px;">Cliquez pour parcourir la montagne selon la popularité des phobies !</p>
+			  		<p style="font-weight:bold; line-height:20px;">Visualisez la répartition des phobies  et cliquez sur les étoiles pour naviguer !</p>
 			  		<p class="bt-compris-03">Allez, c'est parti &nbsp;</p>
 				</div>
 			</div>			
@@ -65,7 +66,7 @@
         
         <!-- TIMELINE -->
         
-        <div id="timeline-left">
+        <!-- <div id="timeline-left">
 	        <a href="#lien-paradis" class="nav-univers nav-univers-paradis selector-timeline"></a>
 	        <a href="#lien-neige" class="nav-univers nav-univers-neige"></a>
 	        <a href="#lien-verdure" class="nav-univers nav-univers-verdure"></a>
@@ -74,6 +75,27 @@
 	        <a href="#lien-crepuscule" class="nav-univers nav-univers-crepuscule"></a>
 	        <a href="#lien-enfer" class="nav-univers nav-univers-enfer"></a>
         </div>
+        -->
+        
+        <div id="echelle">
+		<div id="background">
+			<div class="level-1">
+				<a href="#agoraphobie-01" ><img src="img/indice4.png" width="20px" class="img" ></a>
+			</div>
+			<div class="level-2">
+				<a href="#mysophobie-11"><img src="img/indice3.png" width="20px" class="img" ></a>
+			</div>
+			<div class="level-3">
+				<a href="#pyrophobie-36"><img src="img/indice2.png" width="20px"  class="img" ></a>
+			</div>
+			<div class="level-4">
+				<a href="#amaxophobie-73"><img src="img/indice1.png" width="20px" class="img" ></a>
+			</div>
+			<div class="level-5">
+				<a href="#atychiphobie-99"><img src="img/indice0.png" width="20px" class="img" ></a>
+			</div>
+		</div>
+	</div>
         
         <div id="content-nav">
         <nav>
@@ -1218,7 +1240,6 @@
         	<div id="automne-tournesol"></div>  
         	<div id="automne-empreinte"></div>   	
 	        <div id="desert-buisson"></div>
-	        <div id="desert-vautour"></div>
 	           
 	        <!-- Lave Montagne -->
 	        <div class="lave-montagne-01"></div>
@@ -1281,6 +1302,37 @@
 	        <p class="blank"></p>
         </div>
         </footer>
+        
+        <script type="text/javascript">
+
+d3.csv("phobies.csv", function (data) {
+
+var date = new Date();
+var hours = date.getHours();
+var mySVG = d3.select("#echelle").append("svg")
+             .attr("width", 70)
+             .attr("height", 420)
+             
+             mySVG.selectAll("circle")
+             .data(data)
+             .enter()
+             .append("circle")
+             .attr("r", 7)
+            .attr("cy", function (d) {return ((+d.Popularite + +d.ValeurWiki + +d.ValeurVP + +d.ValeurSite) - +d.Langues ) * 6 + 30 })
+             .attr("cx", function (d) {return +d.Popularite*10 + (+d.Langues/2) + (+d.ValeurWiki + +d.ValeurVP + +d.ValeurSite)/5 })
+             .attr("fill", function (d) {return d.Couleur})
+             
+             .append("text")
+             .attr("fill","black")
+			 .attr("font-size", 20)
+             .text(function (d) {return d.Nom})
+             
+// SCROOL TO PHOBIA/MONSTER
+
+
+});
+		
+	</script>
 
     </body>
 

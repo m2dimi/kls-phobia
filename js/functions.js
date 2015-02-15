@@ -12,7 +12,7 @@ $(function() {
 	setTimeout(function($) {
 		document.getElementById("content-nav").style.visibility = "visible";
 		document.getElementById("liste-phobies").style.visibility = "visible";
-		document.getElementById("timeline-left").style.visibility = "visible";
+		document.getElementById("echelle").style.visibility = "visible";
 	}, 1000); 
     setTimeout(function($) {
     	jQuery( ".wallpaper-loading" ).slideToggle();
