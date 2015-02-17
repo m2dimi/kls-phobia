@@ -2753,6 +2753,30 @@ div.tooltip div {
     z-index: 6;
 }
 
+#crepuscule-loup{
+	position: absolute;
+	background: url("../img/crepuscule-loup.gif") no-repeat;
+	background-size: 504px;
+	height: 312px;
+    margin-left: 74px;
+    position: absolute;
+    top: 18489px;
+    width: 504px;
+    z-index: 3;
+}
+
+#crepuscule-mouton{
+	position: absolute;
+	background: url("../img/crepuscule-mouton.gif") no-repeat;
+	background-size: 182px;
+	height: 75px;
+    margin-left: 678px;
+    position: absolute;
+    top: 19909px;
+    width: 182px;
+    z-index: 3;
+}
+
 /** ELEMENTS ENFER **/
 .lave-montagne-01{
 	position: absolute;
