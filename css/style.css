@@ -84,7 +84,7 @@ body{
 	    
 	    .level-1 {
 		    width:70px;
-		    height:120px;
+		    height:125px;
 	    }
 	    
 	   .level-2 {
@@ -94,17 +94,12 @@ body{
 	    
 	    .level-3 {
 		    width:70px;
-		    height:72px;
+		    height:115px;
 	    }
 	    
 	    .level-4 {
 		    width:70px;
-		    height:110px;
-	    }
-	    
-	    .level-5 {
-		    width:70px;
-		    height:22px;
+		    height:90px;
 	    }
 	    
 /** **/

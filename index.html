@@ -83,10 +83,6 @@
 			<div class="level-4">
 				<a href="#amaxophobie-73"><img src="img/indice1.png" style="width:20px" alt="popularite" class="img" /></a>
 			</div>
-			
-			<div class="level-5">
-				<a href="#atychiphobie-99"><img src="img/indice0.png" style="width:20px" alt="popularite" class="img" /></a>
-			</div>
 		</div>
 	</div>
         
@@ -1302,27 +1298,77 @@
         <script type="text/javascript">
 
 d3.csv("phobies.csv", function (data) {
+	
+var pop_one   = data.filter(function(d){return d.Popularite == 1})
+var pop_two   = data.filter(function(d){return d.Popularite == 2})
+var pop_three = data.filter(function(d){return d.Popularite == 3})
+var pop_four  = data.filter(function(d){return d.Popularite == 4})
 
-var date = new Date();
-var hours = date.getHours();
-var mySVG = d3.select("#echelle").append("svg")
+// PHOBIES TRES POPULAIRES
+var SVG1 = d3.select(".level-1").append("svg")
              .attr("width", 70)
-             .attr("height", 420)
+             .attr("height", 125)
              
-             mySVG.selectAll("circle")
-             .data(data)
+             SVG1.selectAll("circle")
+             .data(pop_one)
              .enter()
              .append("circle")
-             .attr("r", 7)
-            .attr("cy", function (d) {return ((+d.Popularite + +d.ValeurWiki + +d.ValeurVP + +d.ValeurSite) - +d.Langues ) * 6 + 30 })
-             .attr("cx", function (d) {return +d.Popularite*10 + (+d.Langues/2) + (+d.ValeurWiki + +d.ValeurVP + +d.ValeurSite)/5 })
+             .attr("r", 8)
+             .attr("cy", function (d, pop_one) {return +d.Popularite + ((+d.ValeurWiki + +d.ValeurVP + +d.ValeurSite - +d.Langues)*2.5 + 70)})
+             .attr("cx", function(d,i ) {return (+d.Popularite + +d.ValeurWiki + +d.ValeurVP + +d.ValeurSite + +d.Langues)/1.7 })
              .attr("fill", function (d) {return d.Couleur})
-             
              .append("text")
-             .attr("fill","black")
-			 .attr("font-size", 20)
-             .text(function (d) {return d.Nom})
-          
+             .text(function (d) {return d.Nom + " & Popularité de " + d.Popularite});
+             
+// PHOBIES POPULAIRES            
+var SVG2 = d3.select(".level-2").append("svg")
+             .attr("width", 70)
+             .attr("height", 140)
+             
+             SVG2.selectAll("circle")
+             .data(pop_two)
+             .enter()
+             .append("circle")
+             .attr("r", 8)
+             .attr("cy", function (d, pop_two) {return +d.Popularite + ((+d.ValeurWiki + +d.ValeurVP + +d.ValeurSite - +d.Langues)* 2.5 + 20)})
+             .attr("cx", function(d,i ) {return (+d.Popularite + +d.ValeurWiki + +d.ValeurVP + +d.ValeurSite + +d.Langues)/1.7 })
+             .attr("fill", function (d) {return d.Couleur})
+             .append("text")
+             .text(function (d) {return d.Nom + " & Popularité de " + d.Popularite});
+
+//PHOBIES MOYENNEMENT POPULAIRES             
+var SVG3 = d3.select(".level-3").append("svg")
+             .attr("width", 70)
+             .attr("height", 115)
+             
+             SVG3.selectAll("circle")
+             .data(pop_three)
+             .enter()
+             .append("circle")
+             .attr("r", 8)
+             .attr("cy", function (d, pop_three) {return +d.Popularite + ((+d.ValeurWiki + +d.ValeurVP + +d.ValeurSite - +d.Langues)* 2.5 - 30 )})
+             .attr("cx", function(d,i ) {return (+d.Popularite + +d.ValeurWiki + +d.ValeurVP + +d.ValeurSite + +d.Langues)/1.7 })
+             .attr("fill", function (d) {return d.Couleur})
+             .append("text")
+             .text(function (d) {return d.Nom + " & Popularité de " + d.Popularite});
+
+
+//PHOBIES PAS POPULAIRES
+var SVG4 = d3.select(".level-4").append("svg")
+             .attr("width", 70)
+             .attr("height", 90)
+             
+             SVG4.selectAll("circle")
+             .data(pop_four)
+             .enter()
+             .append("circle")
+             .attr("r", 8)
+             .attr("cy", function (d, pop_four) {return +d.Popularite + ((+d.ValeurWiki + +d.ValeurVP + +d.ValeurSite - +d.Langues)* 2.5 - 80)})
+             .attr("cx", function(d,i ) {return (+d.Popularite + +d.ValeurWiki + +d.ValeurVP + +d.ValeurSite + +d.Langues)/1.7 })
+             .attr("fill", function (d) {return d.Couleur})
+             .append("text")
+             .text(function (d) {return d.Nom + " & Popularité de " + d.Popularite});
+             
 });
 		
 	</script>
