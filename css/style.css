@@ -39,6 +39,7 @@ body{
 /** D3 JS **/
 		circle {
 		    opacity: .5;
+		    cursor: default!important;
 	    }
 	    
 	    circle:hover
