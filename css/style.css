@@ -13,7 +13,6 @@
          url('../fonts/painp___-webfont.svg#paintypaint1') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 *{
@@ -3150,7 +3149,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		display: none;
 	}
 	
-	#timeline-left{
+	#echelle{
 		right: 0;
 		top: 4px;	
 	}
@@ -3205,7 +3204,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		display: none;
 	}
 
-	#timeline-left{
+	#echelle{
 		right: 0;
 		top: 52px;	
 	}
