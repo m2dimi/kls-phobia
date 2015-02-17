@@ -67,7 +67,7 @@ body{
 	    
 	    svg
 	    {
-		    margin-left: -13px;
+		    margin-left: -5px;
 		    margin-top: -20px;
 		    width:70px;
 		    height:420px;
@@ -93,21 +93,21 @@ body{
 	    
 	    .level-2 a{
 		   margin-left: -15px;
-		   margin-top: -10px;
+		   margin-top: -25px;
 		   position: absolute; 
 		   z-index: 90;
 	    }
 	    
 	    .level-3 a{
 		   margin-left: -17px;
-		   margin-top: -20px;
+		   margin-top: -28px;
 		   position: absolute; 
 		   z-index: 90;
 	    }
 	    
 	    .level-4 a{
 		    margin-left: -15px;
-			margin-top: -10px;
+			margin-top: -20px;
 			position: absolute;
 			z-index: 90; 
 	    }
