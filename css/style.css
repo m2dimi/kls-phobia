@@ -176,6 +176,160 @@ body{
 	z-index: 9999;	
 }
 
+.nombre-elements-naturels{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    padding-left: 5px;
+    padding-top: 0.8px;
+    font-size: 12px;
+}
+
+.nombre-social{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 11px;
+    padding-left: 4px;
+    padding-top: 1.3px;
+}
+
+.nombre-gustatifs{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-top: 0.8px;
+}
+
+.nombre-inclassable{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-top: 0.8px;
+}
+
+.nombre-animal{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-top: 0.8px;
+}
+
+.nombre-transport{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-top: 0.8px;
+}
+
+.nombre-vertige{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-top: 0.8px;
+}
+
+.nombre-mythe-religion{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-top: 0.8px;
+}
+
+.nombre-sante{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 10px;
+    padding-left: 4px;
+    padding-top: 1.8px;
+}
+
+.nombre-obscurite{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-top: 0.8px;
+}
+
+.nombre-objet{
+	background: url("../img/nombre-elements-naturels.png") no-repeat;
+	background-size: 20px;
+	opacity: 0;
+	display: inline-block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 999;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-top: 0.8px;
+}
+
 #consigne-01{
 	z-index: 9999;	
 	position: absolute;

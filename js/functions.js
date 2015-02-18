@@ -12,7 +12,7 @@ $(function() {
 	setTimeout(function($) {
 		document.getElementById("content-nav").style.visibility = "visible";
 		document.getElementById("liste-phobies").style.visibility = "visible";
-		document.getElementById("echelle").style.visibility = "visible";
+		document.getElementById("timeline-left").style.visibility = "visible";
 	}, 1000); 
     setTimeout(function($) {
     	jQuery( ".wallpaper-loading" ).slideToggle();
@@ -85,84 +85,96 @@ $(function() {
 function PhobieAll(){
 	document.getElementById("all-phobies").style.fontWeight="bold";
 	$( "#elements-naturels, #gustatifs, #animal, #vertige, #sante, #mythe-religion, #objet, #obscurite, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 1 }, 400);    
+    $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 1 }, 400); 
+    $(".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite, .nombre-objet").animate({opacity:0},400);   
 }
 
 function PhobieElementsNaturels(){
 	document.getElementById("elements-naturels").style.fontWeight="bold";
 	$( "#all-phobies, #gustatifs, #animal, #vertige, #sante, #mythe-religion, #objet, #obscurite, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".elements-naturels").animate({ opacity: 1 }, 400);
-    $( ".gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);   
+    $(".elements-naturels, .nombre-elements-naturels").animate({ opacity: 1 }, 400);
+    $( ".gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400); 
+    $( ".nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);  
 }
 
 function PhobieGustatifs(){
 	document.getElementById("gustatifs").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #animal, #vertige, #sante, #mythe-religion, #objet, #obscurite, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".gustatifs").animate({ opacity: 1 }, 400);
+    $(".gustatifs, .nombre-gustatifs").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 function PhobieAnimal(){
 	document.getElementById("animal").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #vertige, #sante, #mythe-religion, #objet, #obscurite, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".animal").animate({ opacity: 1 }, 400);
+    $(".animal, .nombre-animal").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 function PhobieVertige(){
 	document.getElementById("vertige").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #animal, #sante, #mythe-religion, #objet, #obscurite, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".vertige").animate({ opacity: 1 }, 400);
+    $(".vertige, .nombre-vertige").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .animal, .sante, .mythe-religion, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 function Phobiesante(){
 	document.getElementById("sante").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #animal, #vertige, #mythe-religion, #objet, #obscurite, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".sante").animate({ opacity: 1 }, 400);
+    $(".sante, .nombre-sante").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .vertige, .animal, .mythe-religion, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 function PhobieMytheReligion(){
 	document.getElementById("mythe-religion").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #animal, #vertige, #sante, #objet, #obscurite, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".mythe-religion").animate({ opacity: 1 }, 400);
+    $(".mythe-religion, .nombre-mythe-religion").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .objet, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-sante, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 function PhobieObjet(){
 	document.getElementById("objet").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #animal, #vertige, #sante, #mythe-religion, #obscurite, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".objet").animate({ opacity: 1 }, 400);
+    $(".objet, .nombre-objet").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .obscurite, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite" ).animate({ opacity: 0 }, 400);
 }
 
 function PhobieObscurite(){
 	document.getElementById("obscurite").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #animal, #vertige, #sante, #mythe-religion, #objet, #social, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".obscurite").animate({ opacity: 1 }, 400);
+    $(".obscurite, .nombre-obscurite").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .social, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 function PhobieSocial(){
 	document.getElementById("social").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #animal, #vertige, #sante, #mythe-religion, #obscurite, #objet, #transport, #inclassable" ).css({'font-weight':'normal'});
-    $(".social").animate({ opacity: 1 }, 400);
+    $(".social, .nombre-social").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .transport, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 function PhobieTransport(){
 	document.getElementById("transport").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #animal, #vertige, #sante, #mythe-religion, #obscurite, #social, #social, #inclassable" ).css({'font-weight':'normal'});
-    $(".transport").animate({ opacity: 1 }, 400);
+    $(".transport, .nombre-transport").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .inclassable" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-inclassable, .nombre-animal, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 function PhobieInclassable(){
 	document.getElementById("inclassable").style.fontWeight="bold";
 	$( "#all-phobies, #elements-naturels, #gustatifs, #animal, #vertige, #sante, #mythe-religion, #obscurite, #social, #transport" ).css({'font-weight':'normal'});
-    $(".inclassable").animate({ opacity: 1 }, 400);
+    $(".inclassable, .nombre-inclassable").animate({ opacity: 1 }, 400);
     $( ".elements-naturels, .gustatifs, .animal, .vertige, .sante, .mythe-religion, .objet, .obscurite, .social, .transport" ).animate({ opacity: 0.1 }, 400);
+    $( ".nombre-elements-naturels, .nombre-social, .nombre-gustatifs, .nombre-animal, .nombre-transport, .nombre-vertige, .nombre-mythe-religion, .nombre-sante, .nombre-obscurite, .nombre-objet" ).animate({ opacity: 0 }, 400);
 }
 
 // Timeline avec position entre deux valeurs en pixels
